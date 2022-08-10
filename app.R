@@ -66,7 +66,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        tags$br(), tags$br(),
                        tags$div(align="center",
                                 img(src='quimiostatos.jpg', align = "center", width=400),tags$br(),
-                                tags$b("Our photochemostat intallations"), tags$br(),
+                                tags$b("Our photochemostat installations"), tags$br(),
                        ), tags$br(), tags$br(),
                        tags$div(align="center",
                                 splitLayout(
@@ -213,7 +213,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                  )
                                 )),
                        
-                       tags$h3(tags$b("Some pictures of our team builiding days out:")),
+                       tags$h3(tags$b("Some pictures of our team building days out:")),
                        tags$br(),tags$br(),
                        img(src='chiclana.jpeg', align = "center", width=500), tags$br(),
                        tags$b("July 2022 - Beach in Chiclana (Cádiz)"), tags$br(),tags$br(),

@@ -62,8 +62,13 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        tags$b(tags$i("Arabidopsis thaliana.")), "We also study the microalgae of industrial interest",
                        tags$b(tags$i("Haematococcus lacustris")), "and", tags$b(tags$i("Chromocloris zofingiensis")), 
                        "and crops such as", tags$b(tags$i("wheat or Triticum aestivium")), 
-                       "and", tags$b(tags$i("tomato or Solanum lycopersicum."))),
-                       tags$br(), tags$br(),
+                       "and", tags$b(tags$i("tomato or Solanum lycopersicum.")),
+                       tags$br(),
+                       "Our group in part of the", tags$a(target="_blank", href="https://www.ibvf.us-csic.es/", 
+                                                          tags$b("Institute for Plant Biochemistry and Photosynthesis (IBVF)")),
+                       "in Seville (Spain) a join center between the", tags$b("University of Seville"), "and",
+                       tags$b("Consejo Superior de Investigaciones Científicas (CSIC).")),
+                       tags$br(),
                        tags$div(align="center",
                                 img(src='quimiostatos.jpg', align = "center", width=400),tags$br(),
                                 tags$b("Our photochemostat installations"), tags$br(),
@@ -235,7 +240,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        
                        tags$div(align="justify",
                        tags$ul(
-                        tags$li(tags$a(href="https://www.frontiersin.org/articles/10.3389/fpls.2022.855243/full", 
+                        tags$li(tags$a(target="_blank", href="https://www.frontiersin.org/articles/10.3389/fpls.2022.855243/full", 
                                "Serrano-Pérez E, Romero-Losada AB, Morales-Pineda M, 
                                 García-Gómez ME, Couso I, García-González M, 
                                 Romero-Campero FJ. (2022)", tags$b("Transcriptomic and Metabolomic 
@@ -245,14 +250,14 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                         
                         tags$br(),
                         
-                        tags$li(tags$a(href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-022-04639-5", 
+                        tags$li(tags$a(target="_blank", href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-022-04639-5", 
                                        "Romero-Losada AB, Arvanitidou C, de Los Reyes P, García-González M, 
                                        Romero-Campero FJ. (2022)", tags$b("ALGAEFUN with MARACAS, microALGAE 
                                        FUNctional enrichment tool for MicroAlgae RnA-seq and Chip-seq AnalysiS ."), 
                                        "BMC Bioinformatics 23(1):113. doi: 10.1186/s12859-022-04639-5")),
                         tags$br(),
                         
-                        tags$li(tags$a(href="https://pubs.acs.org/doi/10.1021/acs.jafc.1c08100", 
+                        tags$li(tags$a(target="_blank", href="https://pubs.acs.org/doi/10.1021/acs.jafc.1c08100", 
                                        "Fernández-Rodríguez MJ, de la Lama-Calvente D, García-González M, 
                                        Moreno-Fernández J, Jiménez-Rodríguez A, Borja R, Rincón-Llorente B. (2022)", 
                                        tags$b("Integral Valorization of Two-Phase 
@@ -267,7 +272,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        
                        tags$div(align="justify",
                                 tags$ul(
-                                 tags$li(tags$a(href="https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.17741", 
+                                 tags$li(tags$a(target="_blank", href="https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.17741", 
                                                 "Couso I, Smythers AL, Ford MM, Umen JG, Crespo JL, Hicks LM. (2021)", 
                                                 tags$b("Inositol polyphosphates and target of rapamycin kinase signalling 
                                                        govern photosystem II protein phosphorylation and photosynthetic 
@@ -276,14 +281,14 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                  
                                  tags$br(),
                                  
-                                 tags$li(tags$a(href="https://www.sciencedirect.com/science/article/abs/pii/S0960852421004892?via%3Dihub", 
+                                 tags$li(tags$a(target="_blank", href="https://www.sciencedirect.com/science/article/abs/pii/S0960852421004892?via%3Dihub", 
                                                 "Hoys C, Romero-Losada AB, Del Río E, Guerrero MG, Romero-Campero FJ, 
                                                 García-González M. (2021)", tags$b("Unveiling the underlying molecular basis of astaxanthin 
                                                 accumulation in Haematococcus through integrative metabolomic-transcriptomic analysis."), 
                                                 "Bioresour Technol. 332:125150. doi: 10.1016/j.biortech.2021.125150.")),
                                  tags$br(),
                                  
-                                 tags$li(tags$a(href="https://www.nature.com/articles/s41467-020-20614-1", 
+                                 tags$li(tags$a(target="_blank", href="https://www.nature.com/articles/s41467-020-20614-1", 
                                                 "Yin X, Romero-Campero FJ, de Los Reyes P, Yan P, Yang J, Tian G, Yang X, Mo X, Zhao S, 
                                                 Calonje M, Zhou Y. (2021)", 
                                                 tags$b("H2AK121ub in Arabidopsis associates with a less accessible chromatin state at 
@@ -292,7 +297,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                  
                                  tags$br(),
                                  
-                                 tags$li(tags$a(href="https://academic.oup.com/plphys/article/187/1/88/6284975?login=false", 
+                                 tags$li(tags$a(target="_blank", href="https://academic.oup.com/plphys/article/187/1/88/6284975?login=false", 
                                                 "Ojeda V, Jiménez-López J, Romero-Campero FJ, Cejudo FJ, Pérez-Ruiz JM. (2021)", 
                                                 tags$b("A chloroplast redox relay adapts plastid metabolism to light and affects 
                                                        cytosolic protein quality control."), 
@@ -300,7 +305,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                  
                                  tags$br(),
                                  
-                                 tags$li(tags$a(href="https://academic.oup.com/nar/article/49/15/8757/6348197?login=false", 
+                                 tags$li(tags$a(target="_blank", href="https://academic.oup.com/nar/article/49/15/8757/6348197?login=false", 
                                                 "Santamaría-Gómez J, Rubio MÁ, López-Igual R, Romero-Losada AB, Delgado-Chaves FM, 
                                                 Bru-Martínez R, Romero-Campero FJ, Herrero A, Ibba M, Ochoa de Alda JAG, Luque I. (2021)", 
                                                 tags$b("Role of a cryptic tRNA gene operon in survival under translational stress."), 
@@ -308,7 +313,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                  
                                  tags$br(),
                                  
-                                 tags$li(tags$a(href="https://www.frontiersin.org/articles/10.3389/fpls.2021.633979/full", 
+                                 tags$li(tags$a(target="_blank", href="https://www.frontiersin.org/articles/10.3389/fpls.2021.633979/full", 
                                                 "Sánchez-Cabrera M, Jiménez-López FJ, Narbona E, Arista M, Ortiz PL, 
                                                 Romero-Campero FJ, Ramanauskas K, Igić B, Fuller AA, Whittall JB. (2021)", 
                                                 tags$b("Changes at a Critical Branchpoint in the Anthocyanin Biosynthetic 
@@ -324,7 +329,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        
                        tags$div(align="justify",
                                 tags$ul(
-                                 tags$li(tags$a(href="https://academic.oup.com/plcell/article/32/1/69/6099200?login=false", 
+                                 tags$li(tags$a(target="_blank", href="https://academic.oup.com/plcell/article/32/1/69/6099200?login=false", 
                                                 "Couso I, Pérez-Pérez ME, Ford MM, Martínez-Force E, Hicks LM, Umen JG, Crespo JL. (2020)", 
                                                 tags$b("Phosphorus Availability Regulates TORC1 Signaling via LST8 in Chlamydomonas."), 
                                                 "Plant Cell. 32(1):69-80. doi: 10.1105/tpc.19.00179.")),
@@ -336,7 +341,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        
                        tags$div(align="justify",
                                 tags$ul(
-                                 tags$li(tags$a(href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-019-5430-x", 
+                                 tags$li(tags$a(target="_blank", href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-019-5430-x", 
                                                 "Ruger-Herreros M, Parra-Rivero O, Pardo-Medina J, Romero-Campero FJ, Limón MC, Avalos J. (2019)", 
                                                 tags$b("Comparative transcriptomic analysis unveils interactions between the regulatory CarS 
                                                        protein and light response in Fusarium."), 
@@ -348,7 +353,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        
                        tags$div(align="justify",
                                 tags$ul(
-                                 tags$li(tags$a(href="https://academic.oup.com/jxb/article/69/6/1355/4557897?login=false", 
+                                 tags$li(tags$a(target="_blank", href="https://academic.oup.com/jxb/article/69/6/1355/4557897?login=false", 
                                                 "Couso I, Pérez-Pérez ME, Martínez-Force E, Kim HS, He Y, Umen JG, Crespo JL. (2018)", 
                                                 tags$b("Autophagic flux is required for the synthesis of triacylglycerols and ribosomal
                                                        protein turnover in Chlamydomonas."), 
@@ -361,7 +366,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        
                        tags$div(align="justify",
                                 tags$ul(
-                                 tags$li(tags$a(href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1197-z", 
+                                 tags$li(tags$a(target="_blank", href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1197-z", 
                                                 "Zhou Y, Romero-Campero FJ, Gómez-Zambrano Á, Turck F, Calonje M. (2017)", 
                                                 tags$b("H2A monoubiquitination in Arabidopsis thaliana is generally 
                                                        independent of LHP1 and PRC2 activity."), 
@@ -369,7 +374,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                  
                                  tags$br(),
                                  
-                                 tags$li(tags$a(href="https://academic.oup.com/plphys/article/173/1/627/6116028?login=false", 
+                                 tags$li(tags$a(target="_blank", href="https://academic.oup.com/plphys/article/173/1/627/6116028?login=false", 
                                                 "Merini W, Romero-Campero FJ, Gomez-Zambrano A, Zhou Y, Turck F, Calonje M. (2017)", 
                                                 tags$b("The Arabidopsis Polycomb Repressive Complex 1 (PRC1) Components AtBMI1A, B, 
                                                        and C Impact Gene Networks throughout All Stages of Plant Development."), 
@@ -377,21 +382,21 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                  
                                  tags$br(),
                                  
-                                 tags$li(tags$a(href="https://www.frontiersin.org/articles/10.3389/fpls.2017.01217/full", 
+                                 tags$li(tags$a(target="_blank", href="https://www.frontiersin.org/articles/10.3389/fpls.2017.01217/full", 
                                                 "de Los Reyes P, Romero-Campero FJ, Ruiz MT, Romero JM, Valverde F. (2017)", 
                                                 tags$b("Evolution of Daily Gene Co-expression Patterns from Algae to Plants."), 
                                                 "Front Plant Sci. 8:1217. doi: 10.3389/fpls.2017.01217.")),
                                  
                                  tags$br(),
                                  
-                                 tags$li(tags$a(href="https://www.sciencedirect.com/science/article/abs/pii/S1369526616301686?via%3Dihub", 
+                                 tags$li(tags$a(target="_blank", href="https://www.sciencedirect.com/science/article/abs/pii/S1369526616301686?via%3Dihub", 
                                                 "Serrano-Bueno G, Romero-Campero FJ, Lucas-Reina E, Romero JM, Valverde F. (2017)", 
                                                 tags$b("Evolution of photoperiod sensing in plants and algae."), 
                                                 "Curr Opin Plant Biol. 37:10-17. doi: 10.1016/j.pbi.2017.03.007.")),
                                  
                                  tags$br(), 
                                  
-                                 tags$li(tags$a(href="https://www.frontiersin.org/articles/10.3389/fpls.2017.00626/full", 
+                                 tags$li(tags$a(target="_blank", href="https://www.frontiersin.org/articles/10.3389/fpls.2017.00626/full", 
                                                 "Briones-Moreno A, Hernández-García J, Vargas-Chávez C, Romero-Campero FJ, 
                                                 Romero JM, Valverde F, Blázquez MA. (2017)", 
                                                 tags$b("Evolutionary Analysis of DELLA-Associated Transcriptional Networks."), 
@@ -414,7 +419,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                         splitLayout(
                          cellWidths = c("20%", "80%"), 
                          img(src='logo_1.png', align = "center", width=100),
-                         tags$a(href="https://greennetwork.us.es/AlgaeFUN/", 
+                         tags$a(target="_blank", href="https://greennetwork.us.es/AlgaeFUN/", 
                                 tags$b("ALGAEFUN, microALGAE FUNctional enrichment tool"))
                          
                          )),
@@ -425,7 +430,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                 splitLayout(
                                  cellWidths = c("20%", "80%"), 
                                  img(src='logo_1.gif', align = "center", width=100),
-                                 tags$a(href="https://github.com/fran-romero-campero/MARACAS", 
+                                 tags$a(target="_blank", href="https://github.com/fran-romero-campero/MARACAS", 
                                         tags$b("MARACAS, MicroAlgae RnA-seq and Chip-seq AnalysiS"))
                                  
                                 )),
@@ -436,7 +441,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                 splitLayout(
                                  cellWidths = c("20%", "80%"), 
                                  img(src='logo_minotaur.png', align = "center", width=100),
-                                 tags$a(href="https://greennetwork.us.es/MINOTAUR/", 
+                                 tags$a(target="_blank", href="https://greennetwork.us.es/MINOTAUR/", 
                                         tags$b("MINOTAUR, Multi-omics INtegration in Ostreococcus TAURi"))
                                  
                                 )),
@@ -447,7 +452,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                 splitLayout(
                                  cellWidths = c("20%", "80%"), 
                                  img(src='mole_knight.png', align = "center", width=100),
-                                 tags$a(href="https://greennetwork.us.es/MOLE-KNIGHTS/", 
+                                 tags$a(target="_blank", href="https://greennetwork.us.es/MOLE-KNIGHTS/", 
                                         tags$b("Mole Knights, MultiOmics anaLysis Exploration of Klebsormidium 
                                         NItens liGHT Stress"))
                                  
@@ -459,7 +464,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                 splitLayout(
                                  cellWidths = c("20%", "80%"), 
                                  img(src='attractor_logo_2.jpg', align = "center", width=100),
-                                 tags$a(href="https://greennetwork.us.es/ATTRACTOR/", 
+                                 tags$a(target="_blank", href="https://greennetwork.us.es/ATTRACTOR/", 
                                         tags$b("ATTRACTOR, Arabidopsis Thaliana TRanscriptionAl Circadian neTwORk"))
                                  
                                 )),
@@ -470,7 +475,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                 splitLayout(
                                  cellWidths = c("20%", "80%"), 
                                  img(src='bud.jpg', align = "center", width=100),
-                                 tags$a(href="https://greennetwork.us.es/BRC1NET/", 
+                                 tags$a(target="_blank", href="https://greennetwork.us.es/BRC1NET/", 
                                         tags$b("BRC1NET, BRC1 Downstream Transcriptional Network in Arabidopsis thaliana"))
                                  
                                 )),

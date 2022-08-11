@@ -118,7 +118,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                 with different responsabilities, duties and roles within our group. Our goal 
                                 is to produce a nurturing and stimulating environment in our group in which we 
                                 all have fun, learn, discover and grow as scientists and people. We all are 
-                                strongly commited to open, fair and ethical science. 
+                                strongly committed to open, fair and ethical science. 
                                 "),
                        tags$br(),
                        tags$h3(tags$b("Principal Investigators:")),

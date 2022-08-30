@@ -212,7 +212,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                 splitLayout(
                                  cellWidths = c("100%"),
                                  tags$div(
-                                  img(src='roda.jpg', align = "center", width=150), tags$br(),
+                                  img(src='roda.jpg', align = "center", width=300), tags$br(),
                                   tags$b("Rodrigo Bedera"), tags$br(),
                                   tags$b("Biochemist")
                                  )

@@ -218,6 +218,19 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                  )
                                 )),
                        
+                       tags$h3(tags$b("Emeritus Professor:")),
+                       tags$br(),
+                       
+                       tags$div(align="center",
+                                splitLayout(
+                                 cellWidths = c("100%"),
+                                 tags$div(
+                                  img(src='mgg.jpg', align = "center", width=300), tags$br(),
+                                  tags$b("Miguel García Guerrero"), tags$br(),
+                                  tags$b("Biologist")
+                                 )
+                                )),
+                       
                        tags$h3(tags$b("Some pictures of our team building days out:")),
                        tags$br(),tags$br(),
                        img(src='chiclana.jpeg', align = "center", width=500), tags$br(),

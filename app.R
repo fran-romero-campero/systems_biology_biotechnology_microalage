@@ -210,15 +210,22 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        
                        tags$div(align="center",
                                 splitLayout(
-                                 cellWidths = c("100%"),
+                                 cellWidths = c("50%"),
                                  tags$div(
-                                  img(src='roda.jpg', align = "center", width=300), tags$br(),
+                                  img(src='roda.png', align = "center", width=180), tags$br(),
                                   tags$b("Rodrigo Bedera"), tags$br(),
                                   tags$b("Biochemist")
+                                 ),
+                                 
+                                 tags$div(
+                                  img(src='jacob.png', align = "center", width=150), tags$br(),
+                                  tags$b("Jacob González-Isa"), tags$br(),
+                                  tags$b("Biochemist")
                                  )
+                                 
                                 )),
                        
-                       tags$h3(tags$b("Emeritus Professor:")),
+                       tags$h3(tags$b("Honorary Professor:")),
                        tags$br(),
                        
                        tags$div(align="center",

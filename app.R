@@ -22,6 +22,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                      "Home" = "home",
                      "Members" = "members",
                      "Papers" = "papers",
+                     "Projects" = "projects",
                      "Software tools" = "tools"
                      #"Data" = "data"
                      ))),
@@ -240,6 +241,8 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        
                        tags$h3(tags$b("Some pictures of our team building days out:")),
                        tags$br(),tags$br(),
+                       img(src='rbmp2022.jpeg', align = "center", width=500), tags$br(),
+                       tags$b("September 2022 - XVI Meeting of Plant Molecular Biology (Seville)"), tags$br(),tags$br(),
                        img(src='chiclana.jpeg', align = "center", width=500), tags$br(),
                        tags$b("July 2022 - Beach in Chiclana (Cádiz)"), tags$br(),tags$br(),
                        img(src='entrerramas.jpeg', align = "center", width=500), tags$br(),
@@ -504,6 +507,120 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        
                        # 
       ),
+      
+      # Projects
+      conditionalPanel(condition = "input.navigation_bar == 'projects'",
+                       tags$br(),tags$br(),
+                       tags$div(align = "justify", "Below you can find a list of
+                                the recent research projects developed or in progress 
+                                in our group in the last years:"),
+                       
+                       tags$br(),
+                       tags$h4(align= "left",tags$b("Estudio de la eficiencia de bioestimulantes innovadores derivados de microalgas para combatir los efectos adversos del cambio climático en tomate y trigo - Microclimatt. O00000226E2000044796")),
+                       
+                       tags$div(align="justify",
+                                tags$ul(
+                                 tags$li(tags$b("Summary:"),"The aim of this project is to highlight the essential role of agricultural biostimulants, in particular those made from microalgae biomass. It seeks to demonstrate the effectiveness of these innovative solutions derived from microalgae to efficiently fight the effects of climate change on crops such as tomatoe and wheat. MicroClimatt will evaluate the physiological and transcriptomic effects induced by treatment with novel microalgae biostimulants on these crops, including conditions that are directly or indirectly caused by climate change, such as water stress or poor fertilisation rates.
+
+This project also aims to quantify the incorporation of carbon in the plant biomass of crops linked to increased productivity, to evaluate the increase of organic carbon incorporation in the soil sink and to study the improvement of soil fertility by treatment of crops with microalgae derivatives, as well as the improvement of soil quality, functionality and sustainability.
+"),
+                                 tags$li(tags$b("Funding Agency:"), "Ministry of Agriculture, Fisheries and Food."),
+                                 tags$li(tags$b("Principal Investigators:"), "Francisco J. Romero-Campero, Mercedes García-González"),
+                                 tags$li(tags$b("Funding:"), "96.497,71€"),
+                                 tags$li(tags$b("Dates:"), "03/2021 - 03/2023")
+                                )),
+                       
+                       img(src='microclimatt.png', align = "center", width=300),
+                       
+                       tags$br(),
+                       tags$h4(align= "left",tags$b("Evolution of Diurnal and Seasonal Rhythmic
+Networks in Chlorophyta, Charophyta and Bryophyta (ELECTRA), PID2021-1239840B-I00")),
+                       
+                       tags$div(align="justify",
+                                tags$ul(
+                                 tags$li(tags$b("Summary:"),
+                                         "The cultivation of photophrophic organisms represents an opportunity in the current climate emergency situation contributing to the
+removal of part of the accumulating CO2 in the atmosphere and its transformation into plant biomass. Since the last century the use of
+microalgae has been proposed for this purpose, due to the biotechnological characteristics of its cultivation. However, few initiatives have
+reached industrial scale. Currently only few microalgae species are massively cultivated (Chlorella, Spirulina, Dunaliella and
+Haematococcus) for products with very high added value (nutritional supplements, b-carotene, astaxanthin and more recently
+biostimulants for plant growth). Among the limitations detected for the widespread implementation of these technologies is the low yield of
+microalgae outdoors cultivation due to fluctuations in light and temperature and contamination by predators. Initiatives are being promoted
+to cultivate microalgae indoors, with artificial light, to reduce the aforementioned inconveniences. This project aims to analyse the effects of
+light regimes on microalgae cultures, studying in depth the transcription factors, identified in the previous project (MINOTAUR), which
+control the expression of key genes in the biosynthetic pathways of compounds of biotechnological interest (carotenoids, starch,
+phytohormones) in response to daily and seasonal light-dark cycles. For this study, the marine microalgae Ostrococcus tauri has been
+selected for its genomic and proteomic simplicity and its interesting biochemical composition. Our research will be also extended to other
+photosynthetic organisms considered the next links in the process of conquering dry land by plants, namely Klebsormidium nitens and
+Marchantia polymorpha. The main goal of our project consist in determining the level of conservation of the diurnal and seasonal rhythmic
+mechanisms controlling the biosynthesis of compounds of biotechnological interest. This will be achieved following a multidisciplinary
+approach combining cultivation of these photosynthetic organisms under controlled conditions with omic technologies , integrative
+multivariate analysis of massive data and network theory. Ultimately, our project seeks to construct the transcriptional network controlling
+diurnal and seasonal rhythms and characterize its evolution in the green lineage history. The midterm application of our results will
+represent an important progress in microalgae biotechnology, plant evolutionary biology and environmental sustainability."),
+                                 tags$li(tags$b("Funding Agency:"), "Ministry of Science and Innovation"),
+                                 tags$li(tags$b("Principal Investigators:"), "Francisco J. Romero-Campero, Mercedes García-González"),
+                                 tags$li(tags$b("Funding:"), "96.800,00€"),
+                                 tags$li(tags$b("Dates:"), "01/2023 - 12/2025")
+                                )),
+                       tags$br(),
+                       tags$h4(align= "left",tags$b("Identification of REgulatorS involved in the
+accumulation of bIodiesel precursor fatty acids induced by Light and nItrogEN availability in
+miCroalgaE (RESILIENCE), TED2021-129651B-I00")),
+                       
+                       tags$div(align="justify",
+                                tags$ul(
+                                 tags$li(tags$b("Summary:"),
+                                         "The cultivation of photophrophic organisms represents an opportunity in the current climate emergency, contributing to the removal of a
+fraction of the CO2 that is accumulating in the atmosphere by transforming it into plant biomass. Since the last century, microalgae
+cultivation, due to their biotechnological advantages, have been proposed as a sustainable solution to this problem. Nonetheless, few
+initiatives have reached industrial scale. The potential of some microalgae for biofuel photoproduction is widely recognized, due to their
+fast growth rate and ability to accumulate high levels of triacylglycerols with low requirements for land and high quality water. In spite of the
+progress that have been achieved, microalgae application into biofuel production has not reached the expected development. The main
+underlying limitations preventing microalgae full development as cell factories include those related to the selection and improvement of
+suitable microalgae strains. Moreover, the complexity of the biological systems underlying microalgae physiology makes mandatory the
+application of omics analysis based on mathematical/computational techniques such as those successfully applied in BigData projects.
+The adequacy and preeminence of the microalgae Raphidocelis subcapitata for the generation of biodiesel precursor fatty acids over other
+oleaginous microalgae has recently been demonstrated by our group. Under moderate nitrogen limitation R. subcapitata increases fatty
+acid content and modifies their profile, altering the relationship between unsaturated and saturated fatty acids. This constitutes an ideal
+lipid profile for the production of biodiesel. R. subcapitata potential in bioremediation has also been demonstrated in several applications. Specifically, our group has successfully used the nutrients contained
+in olive processing waste residues as a growth media for this microalgae. In this way, contributing to the decontamination of these
+discharges. The biomass thus obtained has been successfully tested as a raw material for biogas production. Multi-omics analysis based
+on mathematical/computational techniques has also been recently applied by our research group for the identification of transcription
+factors controlling the biosynthesis of the highly valuable carotenoid astaxanthin in the microalgae of industrial interest Haematococcus. All
+this supports the use of R. subcapitata as an excellent natural biological resource and the application of multi-omics techniques in order to
+contribute to a circular economy.
+In order to contribute to the full development of R. subcapitata as a cell factory, in this project, we aim at the identification of the
+transcriptional regulators controlling fatty acid metabolic pathways involved in the redistribution of carbon fixed by photosynthesis. The
+identified transcription factors and their target DNA sequecnes would constitute candidates for genetic system engineering for the
+optimazition of R. subcapitata as a biodiesel precursor fatty acids cell factory. This would contribute to improve the production of suitable
+fatty acids for the generation of carbon-neutral biofuels progressing towards the stabilization of greenhouse gas concentrations in the
+atmosphere, mainly CO2. This is a multidisciplinary project, where experiences in, molecular biology and microalgae biotechnology are
+combined with those of bioinformatics, which guarantee an effective symbiosis to achieve the proposed objetives."),
+                                 tags$li(tags$b("Funding Agency:"), "Ministry of Science and Innovation"),
+                                 tags$li(tags$b("Principal Investigators:"), "Mercedes García-González, Francisco J. Romero-Campero"),
+                                 tags$li(tags$b("Funding:"), "126.500,00€"),
+                                 tags$li(tags$b("Dates:"), "01/2023 - 12/2024")
+                                )),
+                       
+                       tags$br(),
+                       tags$h4(align= "left",tags$b("Estudio del impacto de los Inositoles polifosfato en la regulación Redox y Estrategias para la Mitigación del Carbono en Algas Verdes - PARAGON.")),
+                       
+                       tags$div(align="justify",
+                                tags$ul(
+                                 tags$li(tags$b("Summary:"),""),
+                                 tags$li(tags$b("Funding Agency:"), "Ministry of Science and Innovation"),
+                                 tags$li(tags$b("Principal Investigators:"), "Inmaculada Couso"),
+                                 tags$li(tags$b("Funding:"), ""),
+                                 tags$li(tags$b("Dates:"), "01/2023 - 12/2024")
+                                )),
+                       
+                       
+                       
+                       
+
+      ),
+      
       
       
       # Data

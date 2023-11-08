@@ -128,7 +128,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                 splitLayout(
                                  cellWidths = c("33%", "33%", "33%"),
                                  tags$div(
-                                  img(src='mercedes.png', align = "center", width=160), tags$br(),
+                                  img(src='mercedes.jpg', align = "center", width=160), tags$br(),
                                   tags$b("Mercedes García-González"), tags$br(),
                                   tags$b("Biologist"), tags$br(), tags$b("Associate Professor")
                                  ),
@@ -156,16 +156,6 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                   tags$b("M. Elena García-Gómez"), tags$br(),
                                   tags$b("Biologist"), tags$br(),tags$b("Lab Technician/Manager")
                                  ),
-                                 tags$div(
-                                  img(src='maria.png', align = "center", width=160), tags$br(),
-                                  tags$b("María Morales-Pineda"), tags$br(),
-                                  tags$b("Biochemist"), tags$br(),tags$b("Lab Technician")
-                                 ),
-                                 tags$div(
-                                  img(src='nuria.jpeg', align = "center", width=180), tags$br(),
-                                  tags$b("Nuria Membrives"), tags$br(),
-                                  tags$b("Biochemist"), tags$br(),tags$b("Lab Technician")
-                                 )
                                 )),
                        tags$br(),tags$br(),
                        tags$h3(tags$b("PhD Students:")),
@@ -187,22 +177,58 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                  )
                                 )),
                        
-                       tags$br(),tags$br(),
-                       tags$h3(tags$b("Master Students:")),
-                       tags$br(),
-                       
                        tags$div(align="center",
                                 splitLayout(
                                  cellWidths = c("50%", "50%"),
                                  tags$div(
                                   img(src='emma.png', align = "center", width=150), tags$br(),
                                   tags$b("Emma Serrano-Pérez"), tags$br(),
-                                  tags$b("Biochemist / Computer and Data Scientist"), tags$br(),tags$b("Master in Omics Data Analysis and Systems Biology")
+                                  tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
+                                  tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
+                                  tags$b("PhD Student Funded by the Ministry of Science and Innovation")
                                  ),
                                  tags$div(
                                   img(src='marcos.png', align = "center", width=150), tags$br(),
                                   tags$b("Marcos Ramos-González"), tags$br(),
-                                  tags$b("Biochemist / Computer and Data Scientist"), tags$br(),tags$b("Master in Omics Data Analysis and Systems Biology")
+                                  tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
+                                  tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
+                                  tags$b("PhD Student FPU Funded by the Ministry of Science and Innovation")
+                                 ),
+                                )),
+                       tags$div(align="center",
+                                splitLayout(
+                                 cellWidths = c("50%"),
+                                 tags$div(
+                                  img(src='roda.png', align = "center", width=180), tags$br(),
+                                  tags$b("Rodrigo Bedera"), tags$br(),
+                                  tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
+                                  tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
+                                  tags$b("PhD Student FPU Funded by the Ministry of Science and Innovation")
+                                 ),
+                                )),
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       tags$br(),tags$br(),
+                       tags$h3(tags$b("Master Students:")),
+                       #tags$br(),
+                       
+                       tags$div(align="center",
+                                splitLayout(
+                                 cellWidths = c("50%", "50%"),
+                                 
+                                 tags$div(
+                                  img(src='andrea_garcia.jpg', align = "center", width=150), tags$br(),
+                                  tags$b("Andrea García-Alcaide"), tags$br(),
+                                  tags$b("Biotechnologist"), tags$br(),tags$b("Master in Omics Data Analysis and Systems Biology")
                                  ),
                                 )),
                        
@@ -213,17 +239,10 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                 splitLayout(
                                  cellWidths = c("50%"),
                                  tags$div(
-                                  img(src='roda.png', align = "center", width=180), tags$br(),
-                                  tags$b("Rodrigo Bedera"), tags$br(),
+                                  img(src='alberto_barrero.jpg', align = "center", width=180), tags$br(),
+                                  tags$b("Alberto Barrero"), tags$br(),
                                   tags$b("Biochemist")
                                  ),
-                                 
-                                 tags$div(
-                                  img(src='jacob.png', align = "center", width=150), tags$br(),
-                                  tags$b("Jacob González-Isa"), tags$br(),
-                                  tags$b("Biochemist")
-                                 )
-                                 
                                 )),
                        
                        tags$h3(tags$b("Honorary Professor:")),
@@ -250,7 +269,32 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        img(src='almuerzo_navidad.png', align = "center", width=500), tags$br(),
                        tags$b("December 2021 - Christmas Lunch in Seville"), tags$br(), tags$br(),tags$br(),
                        # 
-      ),
+     
+                       tags$h3(tags$b("Former Members:")),
+                       tags$br(),
+                       
+                       tags$div(
+                        img(src='maria.png', align = "center", width=160), tags$br(),
+                        tags$b("María Morales-Pineda"), tags$br(),
+                        tags$b("Biochemist"), tags$br(),tags$b("Lab Technician")
+                       ),
+                       tags$div(
+                        img(src='nuria.jpeg', align = "center", width=180), tags$br(),
+                        tags$b("Nuria Membrives"), tags$br(),
+                        tags$b("Biochemist"), tags$br(),tags$b("Lab Technician")
+                       ),
+                       tags$div(
+                        img(src='jacob.png', align = "center", width=150), tags$br(),
+                        tags$b("Jacob González-Isa"), tags$br(),
+                        tags$b("Biochemist")
+                       )
+                       
+                       
+                       
+                       
+       ),
+      
+      
       
       # Papers
       conditionalPanel(condition = "input.navigation_bar == 'papers'",
@@ -259,10 +303,38 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                 the papers published by members of our group in
                                 the last years:"),
                        tags$br(),
+                       
+                       tags$h2(tags$b("2023")),
+                       
+                       tags$div(align="justify",
+                                tags$ul(
+                                 
+                                 tags$li(tags$a(target="_blank", href=" https://doi.org/10.1093/plcell/koad112", 
+                                                "Yin X, Romero-Campero FJ, Yang M, Baile F, Cao Y, Shu J, Luo L, 
+                                                Wang D, Sun S, Yan P, Gong Z, Mo X, Qin G, Calonje M, Zhou Y.(2023)", 
+                                                tags$b("Binding by the Polycomb complex component BMI1 and H2A 
+                                                       monoubiquitination shape local and long-range interactions in the Arabidopsis genome."), 
+                                                "Plant Cell 35:2484-2503.
+                                doi: 10.1093/plcell/koad112")),
+                                 
+                                 tags$br(),
+                                 
+                                 
+                                 tags$li(tags$a(target="_blank", href="https://doi.org/10.3390/plants12010129", 
+                                                "Morales-Pineda M, García-Gómez ME, Bedera-García R, García-González M,  
+                                Couso I. (2023)", tags$b("CO2 Levels Modulate Carbon Utilization, 
+                                Energy Levels and Inositol Polyphosphate Profile in Chlorella."), 
+                                                "Plants 12:129.
+                                doi: 10.3390/plants12010129")),
+                                )),
+                       
+                       tags$br(),
+                       
                        tags$h2(tags$b("2022")),
                        
                        tags$div(align="justify",
                        tags$ul(
+                        
                         tags$li(tags$a(target="_blank", href="https://www.frontiersin.org/articles/10.3389/fpls.2022.855243/full", 
                                "Serrano-Pérez E, Romero-Losada AB, Morales-Pineda M, 
                                 García-Gómez ME, Couso I, García-González M, 
@@ -513,26 +585,28 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        tags$br(),tags$br(),
                        tags$div(align = "justify", "Below you can find a list of
                                 the recent research projects developed or in progress 
-                                in our group in the last years:"),
+                                in our group. Projects are sorted based on their final year:"),
                        
-                       tags$br(),
-                       tags$h4(align= "left",tags$b("Estudio de la eficiencia de bioestimulantes innovadores derivados de microalgas para combatir los efectos adversos del cambio climático en tomate y trigo - Microclimatt. O00000226E2000044796")),
+                       tags$h2(tags$b("2026")),
+                       
+                       tags$h4(align= "left",tags$b("Investigating INosITol polyphosphates 
+                                                    InterAcTome in the context of CO2 capturing and carbon paRtitioning (INITIATOR)")),
                        
                        tags$div(align="justify",
                                 tags$ul(
-                                 tags$li(tags$b("Summary:"),"The aim of this project is to highlight the essential role of agricultural biostimulants, in particular those made from microalgae biomass. It seeks to demonstrate the effectiveness of these innovative solutions derived from microalgae to efficiently fight the effects of climate change on crops such as tomatoe and wheat. MicroClimatt will evaluate the physiological and transcriptomic effects induced by treatment with novel microalgae biostimulants on these crops, including conditions that are directly or indirectly caused by climate change, such as water stress or poor fertilisation rates.
-
-This project also aims to quantify the incorporation of carbon in the plant biomass of crops linked to increased productivity, to evaluate the increase of organic carbon incorporation in the soil sink and to study the improvement of soil fertility by treatment of crops with microalgae derivatives, as well as the improvement of soil quality, functionality and sustainability.
-"),
-                                 tags$li(tags$b("Funding Agency:"), "Ministry of Agriculture, Fisheries and Food."),
-                                 tags$li(tags$b("Principal Investigators:"), "Francisco J. Romero-Campero, Mercedes García-González"),
-                                 tags$li(tags$b("Funding:"), "96.497,71€"),
-                                 tags$li(tags$b("Dates:"), "03/2021 - 03/2023")
+                                 tags$li(tags$b("Summary:"),
+                                         "Mitigation of CO2 is one of the most important problems that governments are facing in the last decade. In fact, European Union is proposing a 40% reduction of its emissions by the end of 2030 in the latest Climate and Energy framework and it pretends to be climate-neutral by 2050 (https://ec.europa.eu/clima/policies/strategies). In this sense, biological CO2 capturing, photosynthesis and its molecular regulation is an ancient process that needs to be revisited in order to help in the reduction of this greenhouse gas.
+In green microalgae, fixed CO2 is normally redirected to two different fates, cell growth (proteins) and carbon storage, mainly in the form of lipids and carbohydrates (starch) (Melis, 2013). In this sense, the use of these microorganisms for the production of biofuels is a good alternative to land crops because it lacks the main ethical implications on food/feed market and land use (Zhu et al., 2022). Thus, the understanding of the intracellular regulation of CO2 capturing and partitioning in green cells is fundamental in order to optimize their use. The green alga Chlamydomonas reinhardtii has been a perfect model for these kinds of studies. Actually, it has been used to describe the interaction between TOR kinase and the pyro-phosphorylated derivates of inositol polyphosphates (PP-InsPs) that controls carbon uptake and its final destination within these photosynthetic cells (Couso et al., 2016).  Until that time, the applicability of inositol polyphosphates (InsPs) in green organisms was limited to biofortification strategies in crop genetic engineering for enhanced mineral density in traits, as these molecules are potent chelating agents that impact de bioavailability of iron and zinc (Raboy, 2020; Wang et al., 2022). Based on our previous results, this project is designed under the prospective view of understanding and manipulating InsPs biosynthesis in microalgae in order to increase the applicability of these green cells in the biofuels and other high added value compounds production towards the global strategy of carbon reduction."),
+                                 tags$li(tags$b("Funding Agency:"), "Ministry of Science and Innovation"),
+                                 tags$li(tags$b("Principal Investigators:"), "Inmaculada Couso-Liañez"),
+                                 tags$li(tags$b("Funding:"), "141.000,00€"),
+                                 tags$li(tags$b("Dates:"), "12/2026")
                                 )),
                        
-                       img(src='microclimatt.png', align = "center", width=300),
                        
-                       tags$br(),
+                       
+                       tags$h2(tags$b("2025")),
+                       
                        tags$h4(align= "left",tags$b("Evolution of Diurnal and Seasonal Rhythmic
 Networks in Chlorophyta, Charophyta and Bryophyta (ELECTRA), PID2021-1239840B-I00")),
                        
@@ -563,10 +637,13 @@ represent an important progress in microalgae biotechnology, plant evolutionary 
                                  tags$li(tags$b("Funding:"), "96.800,00€"),
                                  tags$li(tags$b("Dates:"), "01/2023 - 12/2025")
                                 )),
-                       tags$br(),
+                       
+                       tags$h2(tags$b("2024")),
+                       
                        tags$h4(align= "left",tags$b("Identification of REgulatorS involved in the
 accumulation of bIodiesel precursor fatty acids induced by Light and nItrogEN availability in
 miCroalgaE (RESILIENCE), TED2021-129651B-I00")),
+                       
                        
                        tags$div(align="justify",
                                 tags$ul(
@@ -614,6 +691,31 @@ combined with those of bioinformatics, which guarantee an effective symbiosis to
                                  tags$li(tags$b("Funding:"), ""),
                                  tags$li(tags$b("Dates:"), "01/2023 - 12/2024")
                                 )),
+                       
+                       
+                       tags$h2(tags$b("2023")),
+                       
+                       
+                       tags$br(),
+                       tags$h4(align= "left",tags$b("Estudio de la eficiencia de bioestimulantes innovadores derivados de microalgas para combatir los efectos adversos del cambio climático en tomate y trigo - Microclimatt. O00000226E2000044796")),
+                       
+                       tags$div(align="justify",
+                                tags$ul(
+                                 tags$li(tags$b("Summary:"),"The aim of this project is to highlight the essential role of agricultural biostimulants, in particular those made from microalgae biomass. It seeks to demonstrate the effectiveness of these innovative solutions derived from microalgae to efficiently fight the effects of climate change on crops such as tomatoe and wheat. MicroClimatt will evaluate the physiological and transcriptomic effects induced by treatment with novel microalgae biostimulants on these crops, including conditions that are directly or indirectly caused by climate change, such as water stress or poor fertilisation rates.
+
+This project also aims to quantify the incorporation of carbon in the plant biomass of crops linked to increased productivity, to evaluate the increase of organic carbon incorporation in the soil sink and to study the improvement of soil fertility by treatment of crops with microalgae derivatives, as well as the improvement of soil quality, functionality and sustainability.
+"),
+                                 tags$li(tags$b("Funding Agency:"), "Ministry of Agriculture, Fisheries and Food."),
+                                 tags$li(tags$b("Principal Investigators:"), "Francisco J. Romero-Campero, Mercedes García-González"),
+                                 tags$li(tags$b("Funding:"), "96.497,71€"),
+                                 tags$li(tags$b("Dates:"), "03/2021 - 03/2023")
+                                )),
+                       
+                       img(src='microclimatt.png', align = "center", width=300),
+                       
+                       tags$br(),
+
+                     
                        
                        
                        

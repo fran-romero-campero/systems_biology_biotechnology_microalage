@@ -309,6 +309,19 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        tags$div(align="justify",
                                 tags$ul(
                                  
+                                 
+                                 tags$li(tags$a(target="_blank", href="https://doi.org/10.1093/plcell/koad288", 
+                                                "Liu C, Mentzelopoulou A, Hatzianestis IH, Tzagkarakis E, Skaltsogiannis V, 
+                                                Ma X, Michalopoulou VA, Romero-Campero FJ, Romero-Losada AB, Sarris PF, 
+                                                Marhavy P, Bölter B, Kanterakis A, Gutierrez-Beltran E, Moschou PN.(2023)", 
+                                                tags$b("A proxitome-RNA-capture approach reveals that processing bodies 
+                                                       repress co-regulated hub genes."), 
+                                                "Plant Cell.
+                                doi: 10.1093/plcell/koad288")),
+                                 
+                                 tags$br(),
+                                 
+                                 
                                  tags$li(tags$a(target="_blank", href=" https://doi.org/10.1093/plcell/koad112", 
                                                 "Yin X, Romero-Campero FJ, Yang M, Baile F, Cao Y, Shu J, Luo L, 
                                                 Wang D, Sun S, Yan P, Gong Z, Mo X, Qin G, Calonje M, Zhou Y.(2023)", 

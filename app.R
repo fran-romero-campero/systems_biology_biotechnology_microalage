@@ -304,22 +304,51 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                 the last years:"),
                        tags$br(),
                        
-                       tags$h2(tags$b("2023")),
+                       tags$h2(tags$b("2024")),
                        
                        tags$div(align="justify",
                                 tags$ul(
+                                 
+                                 tags$br(),
+                                 
+                                 
+                                 tags$li(tags$a(target="_blank", href="https://doi.org/10.1002/jsfa.13422", 
+                                                "Arvanitidou C, Ramos-González M, Romero-Losada AB, García-Gómez ME, García-González M, Romero-Campero FJ. (2024)", 
+                                                tags$b("Transcriptomic characterization of the response to a microalgae extract in Arabidopsis thaliana and Solanum lycopersicum."), 
+                                                "Journal of the Science of Food and Agriculture.
+                                doi: 10.1002/jsfa.13422")),
+
+                                 tags$br(),
                                  
                                  
                                  tags$li(tags$a(target="_blank", href="https://doi.org/10.1093/plcell/koad288", 
                                                 "Liu C, Mentzelopoulou A, Hatzianestis IH, Tzagkarakis E, Skaltsogiannis V, 
                                                 Ma X, Michalopoulou VA, Romero-Campero FJ, Romero-Losada AB, Sarris PF, 
-                                                Marhavy P, Bölter B, Kanterakis A, Gutierrez-Beltran E, Moschou PN.(2023)", 
+                                                Marhavy P, Bölter B, Kanterakis A, Gutierrez-Beltran E, Moschou PN.(2024)", 
                                                 tags$b("A proxitome-RNA-capture approach reveals that processing bodies 
                                                        repress co-regulated hub genes."), 
-                                                "Plant Cell.
+                                                "Plant Cell 36:559-584.
                                 doi: 10.1093/plcell/koad288")),
                                  
                                  tags$br(),
+                                 
+                                 
+                                 tags$li(tags$a(target="_blank", href="https://doi.org/10.1111/nph.19420", 
+                                                "van Es SW, Muñoz-Gasca A, Romero-Campero FJ, González-Grandío E, de Los Reyes P, Tarancón C, van Dijk ADJ, van Esse W, Pascual-García A, Angenent GC, Immink RGH, Cubas P. (2024)", tags$b("CO2 Levels Modulate Carbon Utilization, 
+                                
+A gene regulatory network critical for axillary bud dormancy directly controlled by Arabidopsis BRANCHED1."), 
+                                                "New Phytologist 241:1193-1209.
+                                doi: 10.1111/nph.19420")),
+                                )),
+                       
+                       tags$br(),
+                       
+                       
+                       
+                       tags$h2(tags$b("2023")),
+                       
+                       tags$div(align="justify",
+                                tags$ul(
                                  
                                  
                                  tags$li(tags$a(target="_blank", href=" https://doi.org/10.1093/plcell/koad112", 

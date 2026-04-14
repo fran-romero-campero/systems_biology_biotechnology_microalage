@@ -156,48 +156,55 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                   tags$b("M. Elena García-Gómez"), tags$br(),
                                   tags$b("Biologist"), tags$br(),tags$b("Lab Technician/Manager")
                                  ),
+                                 tags$div(
+                                  img(src='alberto_barrero.jpg', align = "center", width=180), tags$br(),
+                                  tags$b("Alberto Barrero"), tags$br(),
+                                  tags$b("Biochemist"), tags$br(),tags$b("Master in Omics Data Analysis and Systems Biology")
+                                 ),
+                                 tags$div(
+                                  img(src='alberto_barrero.jpg', align = "center", width=180), tags$br(),
+                                  tags$b("BORJA"), tags$br(),
+                                  tags$b("-----------"), tags$br(),tags$b("-------------------")
+                                 ),
                                 )),
+
+
+
+
                        tags$br(),tags$br(),
                        tags$h3(tags$b("PhD Students:")),
                        tags$br(),
                        
                        tags$div(align="center",
                                 splitLayout(
-                                 cellWidths = c("50%", "50%"),
-                                 tags$div(
-                                  img(src='ana_belen.png', align = "center", width=230), tags$br(),
-                                  tags$b("Ana B. Romero-Losada"), tags$br(),
-                                  tags$b("Biochemist / Computer and Data Scientist"), tags$br(),tags$b("Substitute Teaching Tutor")
-                                 ),
+                                 cellWidths = c("33%", "33%", "33%"),
                                  tags$div(
                                   img(src='cristina.png', align = "center", width=150), tags$br(),
                                   tags$b("Christina Arvanitidou"), tags$br(),
                                   tags$b("Biologist / Computer and Data Scientist"), tags$br(),
                                   tags$b("PhD Student Funded by"), tags$br(), tags$b("the Andalusian Goverment")
-                                 )
-                                )),
-                       
-                       tags$div(align="center",
-                                splitLayout(
-                                 cellWidths = c("50%", "50%"),
-                                 tags$div(
+                                 ),
+                                  tags$div(
                                   img(src='emma.png', align = "center", width=150), tags$br(),
                                   tags$b("Emma Serrano-Pérez"), tags$br(),
                                   tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
                                   tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
-                                  tags$b("PhD Student Funded by the Ministry of Science and Innovation")
+                                  tags$b("PhD Student Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
                                  ),
                                  tags$div(
                                   img(src='marcos.png', align = "center", width=150), tags$br(),
                                   tags$b("Marcos Ramos-González"), tags$br(),
                                   tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
                                   tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
-                                  tags$b("PhD Student FPU Funded by the Ministry of Science and Innovation")
-                                 ),
+                                  tags$b("PhD Student FPU Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
+                                 )
                                 )),
+                       
+                       tags$br(),
+
                        tags$div(align="center",
                                 splitLayout(
-                                 cellWidths = c("50%"),
+                                 cellWidths = c("50%", "50%"),
                                  tags$div(
                                   img(src='roda.png', align = "center", width=180), tags$br(),
                                   tags$b("Rodrigo Bedera"), tags$br(),
@@ -205,15 +212,14 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                   tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
                                   tags$b("PhD Student FPU Funded by the Ministry of Science and Innovation")
                                  ),
+                                 tags$div(
+                                  img(src='diana.jpeg', align = "center", width=150), tags$br(),
+                                  tags$b("Diana-Andreea Baicea"), tags$br(),
+                                  tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
+                                  tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
+                                  tags$b("PhD Student FPI Funded by the Ministry of Science and Innovation")
+                                 )
                                 )),
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
                        
                        
                        
@@ -226,24 +232,15 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                  cellWidths = c("50%", "50%"),
                                  
                                  tags$div(
-                                  img(src='andrea_garcia.jpg', align = "center", width=150), tags$br(),
-                                  tags$b("Andrea García-Alcaide"), tags$br(),
-                                  tags$b("Biotechnologist"), tags$br(),tags$b("Master in Omics Data Analysis and Systems Biology")
+                                  img(src='maria_cruz.jpeg', align = "center", width=150), tags$br(),
+                                  tags$b("María Cruz-Adame"), tags$br(),
+                                  tags$b("Biochemist"), tags$br(),tags$b("Master in Genetics and Molecular Biology")
                                  ),
                                 )),
                        
                        tags$h3(tags$b("Undergraduate Students:")),
                        tags$br(),tags$br(),
-                       
-                       tags$div(align="center",
-                                splitLayout(
-                                 cellWidths = c("50%"),
-                                 tags$div(
-                                  img(src='alberto_barrero.jpg', align = "center", width=180), tags$br(),
-                                  tags$b("Alberto Barrero"), tags$br(),
-                                  tags$b("Biochemist")
-                                 ),
-                                )),
+
                        
                        tags$h3(tags$b("Honorary Professor:")),
                        tags$br(),
@@ -273,6 +270,10 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        tags$h3(tags$b("Former Members:")),
                        tags$br(),
                        
+                       tags$div(align="center",
+                             splitLayout(
+                             cellWidths = c("50%", "50%", "50%"),
+
                        tags$div(
                         img(src='maria.png', align = "center", width=160), tags$br(),
                         tags$b("María Morales-Pineda"), tags$br(),
@@ -282,15 +283,24 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                         img(src='nuria.jpeg', align = "center", width=180), tags$br(),
                         tags$b("Nuria Membrives"), tags$br(),
                         tags$b("Biochemist"), tags$br(),tags$b("Lab Technician")
-                       ),
+                       ))),               
+                       
+                       tags$div(align="center",
+                                splitLayout(
+                                 cellWidths = c("50%", "50%"),
+                                 
                        tags$div(
                         img(src='jacob.png', align = "center", width=150), tags$br(),
                         tags$b("Jacob González-Isa"), tags$br(),
                         tags$b("Biochemist")
-                       )
-                       
-                       
-                       
+                             ),
+
+                       tags$div(
+                         img(src='andrea_garcia.jpg', align = "center", width=150), tags$br(),
+                         tags$b("Andrea García-Alcaide"), tags$br(),
+                         tags$b("Biotechnologist"), tags$br(),tags$b("Master in Omics Data Analysis and Systems Biology")
+                                 ),
+                                )),
                        
        ),
       
@@ -303,7 +313,61 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                 the papers published by members of our group in
                                 the last years:"),
                        tags$br(),
+
+                       tags$h2(tags$b("2026")),
                        
+                       tags$div(align="justify",
+                                tags$ul(
+                                 
+                                 tags$br(),
+                                 
+                                 tags$li(tags$a(target="_blank", href="https://onlinelibrary.wiley.com/doi/10.1111/plb.70204",
+                                                 "Martínez-Pérez A, de la Mata R, Romero-Campero FJ, Gómez R, Calonje M, Romero JM, Ruiz MT, Valverde F, Picó FX. (2026)",
+                                                 tags$b("Locally adapted Arabidopsis thaliana accessions show transcriptomic plasticity in a multi-timescale analysis of whole-genome gene expression in a natural environment."),
+                                                 "Plant Biology. doi: 10.1111/plb.70204")),
+
+                                   tags$br(),
+
+                                   tags$li(tags$a(target="_blank", href="https://www.mdpi.com/2223-7747/15/6/902",
+                                                 "Morales-Pineda M, García-González M, García-Gómez ME, Romero-Campero FJ, Ramos-González M. (2026)",
+                                                 tags$b("Acute Combination of Nitrogen Deprivation and High Irradiance Induces the Simultaneous Accumulation of Astaxanthin and Lutein in Continuous Cultures of the Microalga Chromochloris zofingiensis."),
+                                                 "Plants 15(6):902. doi: 10.3390/plants15060902")),
+
+                                   tags$br(),
+
+                                   tags$li(tags$a(target="_blank", href="https://academic.oup.com/mbe/article/43/2/msag011/8438624",
+                                                 "Ramos-González M, Ramos-González V, Serrano-Pérez E, Arvanitidou C, Hernández-García J, García-González M, Romero-Campero FJ. (2026)",
+                                                 tags$b("PharaohFUN: phylogenomic analysis for plant protein history and function elucidation."),
+                                                 "Molecular Biology and Evolution 43(2):msag011. doi: 10.1093/molbev/msag011")),
+                                )),
+                       
+                       tags$br(),
+
+
+                       tags$h2(tags$b("2025")),
+                       
+                       tags$div(align="justify",
+                                tags$ul(
+                                 
+                                 tags$br(),
+                                 
+                                 
+                                 tags$li(tags$a(target="_blank", href="https://academic.oup.com/plcell/article/37/2/koaf033/8009039",
+                                                 "Romero-Losada AB, Arvanitidou C, García-Gómez ME, Morales-Pineda M, Castro-Pérez MJ, Chew YP, Van Ooijen G, García-González M, Romero-Campero FJ. (2025)",
+                                                 tags$b("Multiomics integration unveils photoperiodic plasticity in the molecular rhythms of marine phytoplankton."),
+                                                 "Plant Cell 37(2):koaf033. doi: 10.1093/plcell/koaf033")),
+
+                                 tags$br(),
+
+                                 tags$li(tags$a(target="_blank", href="https://onlinelibrary.wiley.com/doi/10.1111/ppl.70089",
+                                                 "Bedera-García R, García-Gómez ME, Personat JM, Couso I. (2025)",
+                                                 tags$b("Inositol polyphosphates regulate resilient mechanisms in the green alga Chlamydomonas reinhardtii to adapt to extreme nutrient conditions."),
+                                                 "Physiologia Plantarum 177(1):e70089. doi: 10.1111/ppl.70089")),
+                                )),
+                       
+                       tags$br(),
+                       
+
                        tags$h2(tags$b("2024")),
                        
                        tags$div(align="justify",
@@ -320,11 +384,17 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
 
                                  tags$br(),
                                  
-                                 
+                                 tags$li(tags$a(target="_blank", href="https://www.cell.com/molecular-plant/fulltext/S1674-2052(24)00186-2?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS1674205224001862%3Fshowall%3Dtrue",
+                                 "de Los Reyes P, Serrano-Bueno G, Romero-Campero FJ, Gao H, Romero JM, Valverde F. (2024)",
+                                 tags$b("CONSTANS alters the circadian clock in Arabidopsis thaliana."),
+                                 "Molecular Plant 17(8):1204-1220. doi: 10.1016/j.molp.2024.06.006")),
+
+                                 tags$br(),
+
                                  tags$li(tags$a(target="_blank", href="https://doi.org/10.1093/plcell/koad288", 
                                                 "Liu C, Mentzelopoulou A, Hatzianestis IH, Tzagkarakis E, Skaltsogiannis V, 
                                                 Ma X, Michalopoulou VA, Romero-Campero FJ, Romero-Losada AB, Sarris PF, 
-                                                Marhavy P, Bölter B, Kanterakis A, Gutierrez-Beltran E, Moschou PN.(2024)", 
+                                                Marhavy P, Bölter B, Kanterakis A, Gutierrez-Beltran E, Moschou PN. (2024)", 
                                                 tags$b("A proxitome-RNA-capture approach reveals that processing bodies 
                                                        repress co-regulated hub genes."), 
                                                 "Plant Cell 36:559-584.
@@ -390,7 +460,7 @@ A gene regulatory network critical for axillary bud dormancy directly controlled
                         tags$li(tags$a(target="_blank", href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-022-04639-5", 
                                        "Romero-Losada AB, Arvanitidou C, de Los Reyes P, García-González M, 
                                        Romero-Campero FJ. (2022)", tags$b("ALGAEFUN with MARACAS, microALGAE 
-                                       FUNctional enrichment tool for MicroAlgae RnA-seq and Chip-seq AnalysiS ."), 
+                                       FUNctional enrichment tool for MicroAlgae RnA-seq and Chip-seq AnalysiS."), 
                                        "BMC Bioinformatics 23(1):113. doi: 10.1186/s12859-022-04639-5")),
                         tags$br(),
                         
@@ -401,7 +471,7 @@ A gene regulatory network critical for axillary bud dormancy directly controlled
                                        Olive Mill Solid Waste (OMSW) and Related Washing Waters by Anaerobic 
                                        Co-digestion of OMSW and the Microalga Raphidocelis subcapitata Cultivated 
                                        in These Effluents ."), 
-                                       "J Agric Food Chem.70(10):3219-3227. doi: 10.1021/acs.jafc.1c08100"))
+                                       "Journal of Agricultural and Food Chemistry.70(10):3219-3227. doi: 10.1021/acs.jafc.1c08100"))
                         
                        )),
                        
@@ -414,7 +484,7 @@ A gene regulatory network critical for axillary bud dormancy directly controlled
                                                 tags$b("Inositol polyphosphates and target of rapamycin kinase signalling 
                                                        govern photosystem II protein phosphorylation and photosynthetic 
                                                        function under light stress in Chlamydomonas ."), 
-                                                "New Phytol. 232(5):2011-2025. doi: 10.1111/nph.17741.")),
+                                                "New Phytologist. 232(5):2011-2025. doi: 10.1111/nph.17741.")),
                                  
                                  tags$br(),
                                  
@@ -422,7 +492,7 @@ A gene regulatory network critical for axillary bud dormancy directly controlled
                                                 "Hoys C, Romero-Losada AB, Del Río E, Guerrero MG, Romero-Campero FJ, 
                                                 García-González M. (2021)", tags$b("Unveiling the underlying molecular basis of astaxanthin 
                                                 accumulation in Haematococcus through integrative metabolomic-transcriptomic analysis."), 
-                                                "Bioresour Technol. 332:125150. doi: 10.1016/j.biortech.2021.125150.")),
+                                                "Bioresource Technology. 332:125150. doi: 10.1016/j.biortech.2021.125150.")),
                                  tags$br(),
                                  
                                  tags$li(tags$a(target="_blank", href="https://www.nature.com/articles/s41467-020-20614-1", 
@@ -430,7 +500,7 @@ A gene regulatory network critical for axillary bud dormancy directly controlled
                                                 Calonje M, Zhou Y. (2021)", 
                                                 tags$b("H2AK121ub in Arabidopsis associates with a less accessible chromatin state at 
                                                        transcriptional regulation hotspots."), 
-                                                "Nat Commun. 12(1):315. doi: 10.1038/s41467-020-20614-1.")),
+                                                "Nature Communications. 12(1):315. doi: 10.1038/s41467-020-20614-1.")),
                                  
                                  tags$br(),
                                  
@@ -438,7 +508,7 @@ A gene regulatory network critical for axillary bud dormancy directly controlled
                                                 "Ojeda V, Jiménez-López J, Romero-Campero FJ, Cejudo FJ, Pérez-Ruiz JM. (2021)", 
                                                 tags$b("A chloroplast redox relay adapts plastid metabolism to light and affects 
                                                        cytosolic protein quality control."), 
-                                                "Plant Physiol. 187(1):88-102. doi: 10.1093/plphys/kiab246.")),
+                                                "Plant Physiology. 187(1):88-102. doi: 10.1093/plphys/kiab246.")),
                                  
                                  tags$br(),
                                  
@@ -446,7 +516,7 @@ A gene regulatory network critical for axillary bud dormancy directly controlled
                                                 "Santamaría-Gómez J, Rubio MÁ, López-Igual R, Romero-Losada AB, Delgado-Chaves FM, 
                                                 Bru-Martínez R, Romero-Campero FJ, Herrero A, Ibba M, Ochoa de Alda JAG, Luque I. (2021)", 
                                                 tags$b("Role of a cryptic tRNA gene operon in survival under translational stress."), 
-                                                "Nucleic Acids Res. 49(15):8757-8776. doi: 10.1093/nar/gkab661.")),
+                                                "Nucleic Acids Research. 49(15):8757-8776. doi: 10.1093/nar/gkab661.")),
                                  
                                  tags$br(),
                                  
@@ -455,7 +525,7 @@ A gene regulatory network critical for axillary bud dormancy directly controlled
                                                 Romero-Campero FJ, Ramanauskas K, Igić B, Fuller AA, Whittall JB. (2021)", 
                                                 tags$b("Changes at a Critical Branchpoint in the Anthocyanin Biosynthetic 
                                                        Pathway Underlie the Blue to Orange Flower Color Transition in Lysimachia arvensis."), 
-                                                "Front Plant Sci. 12:633979. doi: 10.3389/fpls.2021.633979.")),
+                                                "Frontiers in Plant Science. 12:633979. doi: 10.3389/fpls.2021.633979.")),
                                  
                                  
                                  
@@ -494,7 +564,7 @@ A gene regulatory network critical for axillary bud dormancy directly controlled
                                                 "Couso I, Pérez-Pérez ME, Martínez-Force E, Kim HS, He Y, Umen JG, Crespo JL. (2018)", 
                                                 tags$b("Autophagic flux is required for the synthesis of triacylglycerols and ribosomal
                                                        protein turnover in Chlamydomonas."), 
-                                                "J Exp Bot. 69(6):1355-1367. doi: 10.1093/jxb/erx372.")),
+                                                "Journal of Experimental Botany. 69(6):1355-1367. doi: 10.1093/jxb/erx372.")),
                                  
                                 )),
                        
@@ -507,7 +577,7 @@ A gene regulatory network critical for axillary bud dormancy directly controlled
                                                 "Zhou Y, Romero-Campero FJ, Gómez-Zambrano Á, Turck F, Calonje M. (2017)", 
                                                 tags$b("H2A monoubiquitination in Arabidopsis thaliana is generally 
                                                        independent of LHP1 and PRC2 activity."), 
-                                                "Genome Biol. 18(1):69. doi: 10.1186/s13059-017-1197-z.")),
+                                                "Genome Biology. 18(1):69. doi: 10.1186/s13059-017-1197-z.")),
                                  
                                  tags$br(),
                                  
@@ -515,21 +585,21 @@ A gene regulatory network critical for axillary bud dormancy directly controlled
                                                 "Merini W, Romero-Campero FJ, Gomez-Zambrano A, Zhou Y, Turck F, Calonje M. (2017)", 
                                                 tags$b("The Arabidopsis Polycomb Repressive Complex 1 (PRC1) Components AtBMI1A, B, 
                                                        and C Impact Gene Networks throughout All Stages of Plant Development."), 
-                                                "Plant Physiol. 173(1):627-641. doi: 10.1104/pp.16.01259.")),
+                                                "Plant Physiology. 173(1):627-641. doi: 10.1104/pp.16.01259.")),
                                  
                                  tags$br(),
                                  
                                  tags$li(tags$a(target="_blank", href="https://www.frontiersin.org/articles/10.3389/fpls.2017.01217/full", 
                                                 "de Los Reyes P, Romero-Campero FJ, Ruiz MT, Romero JM, Valverde F. (2017)", 
                                                 tags$b("Evolution of Daily Gene Co-expression Patterns from Algae to Plants."), 
-                                                "Front Plant Sci. 8:1217. doi: 10.3389/fpls.2017.01217.")),
+                                                "Frontiers in Plant Science. 8:1217. doi: 10.3389/fpls.2017.01217.")),
                                  
                                  tags$br(),
                                  
                                  tags$li(tags$a(target="_blank", href="https://www.sciencedirect.com/science/article/abs/pii/S1369526616301686?via%3Dihub", 
                                                 "Serrano-Bueno G, Romero-Campero FJ, Lucas-Reina E, Romero JM, Valverde F. (2017)", 
                                                 tags$b("Evolution of photoperiod sensing in plants and algae."), 
-                                                "Curr Opin Plant Biol. 37:10-17. doi: 10.1016/j.pbi.2017.03.007.")),
+                                                "Current Opinion in Plant Biology. 37:10-17. doi: 10.1016/j.pbi.2017.03.007.")),
                                  
                                  tags$br(), 
                                  
@@ -537,7 +607,7 @@ A gene regulatory network critical for axillary bud dormancy directly controlled
                                                 "Briones-Moreno A, Hernández-García J, Vargas-Chávez C, Romero-Campero FJ, 
                                                 Romero JM, Valverde F, Blázquez MA. (2017)", 
                                                 tags$b("Evolutionary Analysis of DELLA-Associated Transcriptional Networks."), 
-                                                "Front Plant Sci. 8:626. doi: 10.3389/fpls.2017.00626.")),
+                                                "Frontiers in Plant Science. 8:626. doi: 10.3389/fpls.2017.00626.")),
                                  
                                  tags$br(), 
                                 )),
@@ -552,6 +622,18 @@ A gene regulatory network critical for axillary bud dormancy directly controlled
                                 and in the green lineage in general. Below
                                 you can find a list of the software tools developed in our group:"),
                        tags$br(), tags$br(), tags$br(),
+
+                       tags$div(align="left",
+                        splitLayout(
+                        cellWidths = c("20%", "80%"), 
+                        img(src='pharaohfun_logo.png', align = "center", width=100),
+                        tags$a(target="_blank", href="https://greennetwork.us.es/PharaohFUN/", 
+                               tags$b("PharaohFUN, Phylogenomic Analysis for Plant Protein History and Function Elucidation"))
+                   
+                        )),
+
+                       tags$br(), tags$br(),
+
                        tags$div(align="left",
                         splitLayout(
                          cellWidths = c("20%", "80%"), 
@@ -629,10 +711,30 @@ A gene regulatory network critical for axillary bud dormancy directly controlled
                                 the recent research projects developed or in progress 
                                 in our group. Projects are sorted based on their final year:"),
                        
+                       tags$h2(tags$b("2028")),
+
+                       tags$h4(
+                       align = "left",
+                       tags$b("Plants and algaE transcriptional Regulation of temperature reSponse and acclimation, an Evolutionary aPproach tHrough multiOmics and Networks Exploration (PERSEPHONE), PID2024-158798OB-I00")),
+
+                       tags$div(align="justify",
+                       tags$ul(
+                       tags$li(
+                       tags$b("Summary:"),
+                       "Photosynthetic eukaryotes of the green lineage (Viridiplantae), comprising green algae and terrestrial plants, have been pivotal in Earth evolutionary history and remain vital for maintaining atmospheric oxygen levels, mitigating climate change through carbon sequestration and providing energy for the vast majority of ecosystems including crops and fuels essential for human civilization. Their remarkable plasticity in temperature response and acclimation, underpinned by complex gene regulatory mechanisms including transcription factors and epigenetic modifications, has been crucial to enable them to colonize and thrive in very diverse environments. These include marine phytoplankton experiencing relatively stable ocean temperatures, benthic algae in intertidal zones facing rapid temperature shifts caused by tides, algae inhabiting seasonal ponds that desiccate during summers and terrestrial plants enduring seasonal and diurnal extreme temperatures. Understanding the regulatory mechanisms underlying this adaptability is crucial for advancing molecular plant science and addressing global challenges such as climate change and food security. The 29th United Nations Climate Change Conference (COP29) highlighted the urgent need to mitigate CO\u2082 emissions and emphasized the critical role of photosynthetic CO2 assimilation. This project seeks to uncover the conserved and divergent gene expression regulatory mechanisms underlying temperature response and acclimation in the green lineage. Specifically, it focuses on transcription factors involved in circadian clock regulation and epigenetic marks linked to Polycomb Repressive Complexes 1 and 2 (PRC1 and PRC2), H2Aub and H3K27me3. The novelty of this research project lies in its multidisciplinary, integrative and evolutionary approach. We will employ automated cultivation systems to generate high-resolution multiomics and physiological datasets, enabling comprehensive analyses of temperature resilience mechanisms. Multiomics data analysis will be applied to construct weighted temporal and longitudinal transcriptional gene networks for the planktonic unicellular chlorophyte Ostreococcus tauri, and gene co-expression networks for the benthic intertidal multicellular chlorophyte Codium tomentosum. Multiomics data analysis will also be employed from an evolutionary perspective to characterize the role over gene regulation in temperature response and acclimation of the epigenetic marks associated with PRC1 (H2Aub) and PRC2 (H3K27me3). This will be achieved by comparing the dynamics of these marks during temperature response and acclimation in the chlorophyte and streptophyte algae, Ostreococcus tauri and Klebsormidium nitens, which possess H3K27me3 but lack H2Aub, with the streptophyte algae Mesotaenium endlicherianum and the terrestrial bryophyte Marchantia, which have both marks. By studying transcriptional regulatory mechanisms across the green lineage, this project will advance our understanding of how algae and plants respond and acclimate to temperature changes. The research is especially relevant given the global climate emergency, characterized by rising temperatures and frequent heatwaves, especially in regions like the Iberian Peninsula, facing these challenges inland and along its coasts."
+                     ),
+                       tags$li(tags$b("Funding Agency:"), "Ministry of Science and Innovation"),
+                       tags$li(tags$b("Principal Investigators:"), "Francisco J. Romero-Campero, Mercedes García-González"),
+                       tags$li(tags$b("Funding:"), "237.500,00€"),
+                       tags$li(tags$b("Dates:"), "01/09/2025 - 31/08/2028")
+                       )),
+
+                       tags$h2(tags$b("2027")),
+
                        tags$h2(tags$b("2026")),
                        
                        tags$h4(align= "left",tags$b("Investigating INosITol polyphosphates 
-                                                    InterAcTome in the context of CO2 capturing and carbon paRtitioning (INITIATOR)")),
+                                                    InterAcTome in the context of CO2 capturing and carbon paRtitioning (INITIATOR), PID2022-136633OA-I00")),
                        
                        tags$div(align="justify",
                                 tags$ul(

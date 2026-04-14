@@ -283,7 +283,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                         img(src='nuria.jpeg', align = "center", width=180), tags$br(),
                         tags$b("Nuria Membrives"), tags$br(),
                         tags$b("Biochemist"), tags$br(),tags$b("Lab Technician")
-                       ))),               
+                       ))),         
                        
                        tags$div(align="center",
                                 splitLayout(

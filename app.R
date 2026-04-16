@@ -194,7 +194,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                   tags$b("PhD Student Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
                                  ),
                                  tags$div(
-                                  img(src='marcos.png', align = "center", width=150), tags$br(),
+                                  img(src='marcos2.jpeg', align = "center", width=150), tags$br(),
                                   tags$b("Marcos Ramos-González"), tags$br(),
                                   tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
                                   tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
@@ -274,8 +274,15 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        
                        tags$div(align="center",
                              splitLayout(
-                             cellWidths = c("50%", "50%", "50%"),
+                             cellWidths = c("33%", "33%", "33%"),
 
+                       tags$div(
+                       img(src='ana_belen.png', align = "center", width=230), tags$br(),
+                       tags$b("Ana B. Romero-Losada"), tags$br(),
+                       tags$b("Biochemist / Computer and Data Scientist"), 
+                       tags$br(),tags$b("Substitute Teaching Tutor"),
+                       tags$br(),tags$b("PhD Student")
+                     ),
                        tags$div(
                         img(src='maria.png', align = "center", width=160), tags$br(),
                         tags$b("María Morales-Pineda"), tags$br(),
@@ -286,7 +293,9 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                         tags$b("Nuria Membrives"), tags$br(),
                         tags$b("Biochemist"), tags$br(),tags$b("Lab Technician")
                        ))),         
-                       
+
+                       tags$br(), tags$br(),
+
                        tags$div(align="center",
                                 splitLayout(
                                  cellWidths = c("50%", "50%"),

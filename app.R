@@ -159,13 +159,15 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                  tags$div(
                                   img(src='alberto_barrero.jpg', align = "center", width=180), tags$br(),
                                   tags$b("Alberto Barrero"), tags$br(),
-                                  tags$b("Biochemist"), tags$br(),tags$b("Master in Omics Data Analysis and Systems Biology")
+                                  tags$b("Biochemist"), tags$br(), 
+                                  tags$b("Master in Omics Data Analysis and Systems Biology"), tags$br(),
+                                  tags$b("Lab Technician")
                                  ),
-                                 tags$div(
-                                  img(src='alberto_barrero.jpg', align = "center", width=180), tags$br(),
-                                  tags$b("BORJA"), tags$br(),
-                                  tags$b("-----------"), tags$br(),tags$b("-------------------")
-                                 ),
+##                                 tags$div(
+##                                  img(src='alberto_barrero.jpg', align = "center", width=180), tags$br(),
+##                                  tags$b("BORJA"), tags$br(),
+##                                  tags$b("-----------"), tags$br(),tags$b("-------------------")
+##                                 ),
                                 )),
 
 
@@ -302,6 +304,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                  ),
                                 )),
                        
+                       tags$br(), tags$br()
        ),
       
       

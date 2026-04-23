@@ -10,42 +10,188 @@ library(shinythemes) # app
 
 # Define UI
 ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
-
-  fluidRow(
-    column(
-      width = 2,
-      img(src='logo_us.png', align = "center", width=150),
-      tags$br(),
-      radioButtons(inputId = "navigation_bar", width="100%",selected="home",
-                   label="",
-                   choices=c(
-                     "Home" = "home",
-                     "Members" = "members",
-                     "Papers" = "papers",
-                     "Projects" = "projects",
-                     "Software tools" = "tools"
-                     #"Data" = "data"
-                     ))),
-    column(
-      width = 8,
-      tags$div(align = "center", 
-               # tags$h1(tags$b("Zzz... BONA Nitens!"), tags$br()),
-               # tags$h2("Best multiOmic exploratioN of trAnscriptomic
-               #         and metabolomic data in klebsormidium Nitens")),
-      tags$h1(tags$b("Research Group on Systems Biology and Biotechnology in Microalgae")), 
-      
-      # Home:
-      conditionalPanel(condition = "input.navigation_bar == 'home'",
-                       tags$div(align = "justify",
-                       tags$br(),tags$br(),
-                       "Human world population is increasing drastically generating 
+                        tags$head(
+                          tags$style(HTML("
+      body {
+        background: linear-gradient(135deg, #f4fbf8 0%, #eef5ff 55%, #f9fbff 100%);
+        color: #17324d;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      }
+      .container-fluid {
+        max-width: 1500px;
+        padding: 26px 22px 40px 22px;
+      }
+      .row {
+        display: flex;
+        align-items: flex-start;
+      }
+      .sidebar-card, .main-card, .side-logos-card, .visitor-card {
+        background: rgba(255,255,255,0.92);
+        border: 1px solid rgba(21, 77, 110, 0.08);
+        border-radius: 24px;
+        box-shadow: 0 18px 45px rgba(18, 48, 74, 0.08);
+        backdrop-filter: blur(8px);
+      }
+      .sidebar-card {
+        padding: 22px 18px;
+        position: sticky;
+        top: 18px;
+      }
+      .side-logos-card {
+        padding: 24px 12px;
+        position: sticky;
+        top: 18px;
+        text-align: center;
+      }
+      .visitor-card {
+        margin-top: 18px;
+        padding: 18px 14px 16px 14px;
+        text-align: center;
+      }
+      .main-card {
+        padding: 26px 30px 34px 30px;
+      }
+      .main-card h1 {
+        font-size: 2.2rem;
+        font-weight: 800;
+        line-height: 1.15;
+        margin: 6px 0 22px 0;
+        color: #123d5c;
+      }
+      .main-card h2 {
+        margin-top: 28px;
+        font-weight: 750;
+        color: #154d6e;
+      }
+      .main-card h4 {
+        margin-top: 22px;
+        font-weight: 700;
+        color: #1b5f78;
+      }
+      .main-card p, .main-card li, .main-card div {
+        line-height: 1.7;
+      }
+      .main-card img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 18px;
+        box-shadow: 0 10px 24px rgba(18, 48, 74, 0.08);
+      }
+      .main-card a {
+        color: #0f6d77;
+      }
+      .sidebar-card .shiny-options-group {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .sidebar-card .radio {
+        margin: 0;
+      }
+      .sidebar-card .radio label {
+        display: block;
+        padding: 0;
+        margin: 0;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .sidebar-card .radio input[type='radio'] {
+        display: none;
+      }
+      .sidebar-card .radio span {
+        display: block;
+        background: #f3f7fb;
+        border: 1px solid #d7e4ef;
+        border-radius: 16px;
+        padding: 16px 22px;
+        color: #203b57;
+        box-shadow: 0 2px 8px rgba(20, 46, 73, 0.04);
+        transition: background-color 0.22s ease, color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+      }
+      .sidebar-card .radio label:hover span {
+        background: #e7f0f8;
+        border-color: #b8ccde;
+        color: #17324d;
+        box-shadow: 0 12px 24px rgba(22, 49, 76, 0.10);
+        transform: translateY(-2px);
+      }
+      .sidebar-card .radio input[type='radio']:checked + span {
+        background: #17324d;
+        color: #ffffff;
+        border-color: #17324d;
+        box-shadow: 0 12px 26px rgba(23, 50, 77, 0.20);
+      }
+      .sidebar-card .radio input[type='radio']:focus + span,
+      .sidebar-card .radio input[type='radio']:active + span {
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(63, 131, 197, 0.14);
+      }
+      .sidebar-card img, .side-logos-card img {
+        display: block;
+        margin: 0 auto 12px auto;
+      }
+      .visitor-card .visitor-title {
+        font-weight: 800;
+        color: #154d6e;
+        margin-bottom: 10px;
+      }
+      .visitor-card .visitor-subtitle {
+        color: #5b7285;
+        font-size: 0.92rem;
+        margin-bottom: 12px;
+      }
+      .visitor-card #mapmyvisitors {
+        display: block;
+        margin: 0 auto;
+      }
+      @media (max-width: 991px) {
+        .sidebar-card, .side-logos-card { position: static; margin-bottom: 18px; }
+        .visitor-card { margin-top: 0; margin-bottom: 18px; }
+        .main-card { padding: 22px 20px 28px 20px; }
+        .main-card h1 { font-size: 1.8rem; }
+      }
+    "))
+                        ),
+                        
+                        fluidRow(
+                          column(
+                            width = 2,
+                            div(class = "sidebar-card",
+                                img(src='logo_us.png', align = "center", width=150),
+                                tags$div(style='text-align:center; font-weight:700; color:#154d6e; margin-bottom:14px;', 'Navigation'),
+                                radioButtons(inputId = "navigation_bar", width="100%",selected="home",
+                                             label="",
+                                             choices=c(
+                                               "Home" = "home",
+                                               "Members" = "members",
+                                               "Papers" = "papers",
+                                               "Projects" = "projects",
+                                               "Software tools" = "tools"
+                                               #"Data" = "data"
+                                             )))),
+                          column(
+                            width = 8,
+                            div(class = "main-card",
+                                tags$div(align = "center", 
+                                         # tags$h1(tags$b("Zzz... BONA Nitens!"), tags$br()),
+                                         # tags$h2("Best multiOmic exploratioN of trAnscriptomic
+                                         #         and metabolomic data in klebsormidium Nitens")),
+                                         tags$h1(tags$b("Research Group on Systems Biology and Biotechnology in Microalgae")), 
+                                         tags$div(style='max-width:900px; margin:0 auto 22px auto; color:#49667d; font-size:1.05rem;',
+                                                  'We combine omics technologies, computational modelling and mathematical methods to better understand microalgae and promote their biotechnological applications.')),
+                                
+                                # Home:
+                                conditionalPanel(condition = "input.navigation_bar == 'home'",
+                                                 tags$div(align = "justify",
+                                                          tags$br(),tags$br(),
+                                                          "Human world population is increasing drastically generating 
                        unprecedented needs for energy and food. The massive exploitation 
                        of fossil fuels to satisfy this energy demand is producing a high 
                        accumulation of CO2 in the atmosphere and the subsequent", tags$b("climate change."), 
-                       "This is affecting crop yield and reducing land area suitable for agriculture, 
+                                                          "This is affecting crop yield and reducing land area suitable for agriculture, 
                        ultimately, increasing malnutrition and its associated human diseases. 
                        In the", tags$b("current climate emergency scenario"), "with energy and food shortage,",  
-                       tags$b("microalgae"), "cultivation represents an opportunity as promising sources of sustainable biofuels, 
+                                                          tags$b("microalgae"), "cultivation represents an opportunity as promising sources of sustainable biofuels, 
                        agricultural biostimulants, animal feed and human nutrients contributing to the
                        removal of the accumulating CO2. Nonetheless, the molecular mechanisms 
                        controlling the biosynthesis of compounds of biotechnological interest remain 
@@ -55,64 +201,64 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        approaches combining", tags$b("omics technologies with High Performance Computing and 
                        mathematical methods"), "to develop predictive models characterizing the molecular 
                        mechanisms controlling the functioning and physiology of microalgae to promote their",
-                       tags$b("biotechnological applications."), "We follow 
+                                                          tags$b("biotechnological applications."), "We follow 
                        an", tags$b("evolutionary methodology"), "in the characterization of these mechanisms extending
                        our studies to the", tags$b("green lineage or viridiplantae"), "focusing specifically in the terrestralization 
                        event during plant evolution. Our favourite model organisms are", tags$b(tags$i("Ostreococcus 
                        tauri, Chlamydomonas reinhardtii, Klebsormidium nitens, Marchantia polymorpha")), "and", 
-                       tags$b(tags$i("Arabidopsis thaliana.")), "We also study the microalgae of industrial interest",
-                       tags$b(tags$i("Haematococcus lacustris")), "and", tags$b(tags$i("Chromocloris zofingiensis")), 
-                       "and crops such as", tags$b(tags$i("wheat or Triticum aestivium")), 
-                       "and", tags$b(tags$i("tomato or Solanum lycopersicum.")),
-                       tags$br(),
-                       "Our group in part of the", tags$a(target="_blank", href="https://www.ibvf.us-csic.es/", 
-                                                          tags$b("Institute for Plant Biochemistry and Photosynthesis (IBVF)")),
-                       "in Seville (Spain) a join center between the", tags$b("University of Seville"), "and",
-                       tags$b("Consejo Superior de Investigaciones Científicas (CSIC).")),
-                       tags$br(),
-                       tags$div(align="center",
-                                img(src='quimiostatos.jpg', align = "center", width=400),tags$br(),
-                                tags$b("Our photochemostat installations"), tags$br(),
-                       ), tags$br(), tags$br(),
-                       tags$div(align="center",
-                                splitLayout(
-                                 cellWidths = c("33%", "33%", "33%"),
-                                 tags$div(
-                                  img(src='ostreococcus_tauri.png', align = "center", width=200), tags$br(),
-                                  tags$b("Ostreococcus tauri"), tags$br(),
-                                 ),
-                                 tags$div(
-                                  img(src='klebsormidium_nitens.png', align = "center", width=200), tags$br(),
-                                  tags$b("Klebsormidium nitens"), tags$br(),
-                                 ),
-                                 tags$div(
-                                  img(src='chromocloris_zofingiensis.png', align = "center", width=200), tags$br(),
-                                  tags$b("Chromochloris zofingiensis"), tags$br(),
-                                  )
-                                )), tags$br(), tags$br(),
-                       tags$div(align="center",
-                                splitLayout(
-                                 cellWidths = c("33%", "33%", "33%"),
-                                 tags$div(
-                                  img(src='marchantia_polymorpha.png', align = "center", width=200), tags$br(),
-                                  tags$b("Marchantia polymorpha"), tags$br(),
-                                 ),
-                                 tags$div(
-                                  img(src='arabidopsis_thaliana.png', align = "center", width=200), tags$br(),
-                                  tags$b("Arabidopsis thaliana"), tags$br(),
-                                 ),
-                                 tags$div(
-                                  img(src='slycopersicum.png', align = "center", width=200), tags$br(),
-                                  tags$b("Solanum lycopersicum"), tags$br(),
-                                 )
-                                )), tags$br(), tags$br(),
-               # 
-      ),
-      
-      # Members
-      conditionalPanel(condition = "input.navigation_bar == 'members'",
-                       tags$br(), tags$br(),
-                       tags$div(align = "justify", "Our research group is multidisciplinary
+                                                          tags$b(tags$i("Arabidopsis thaliana.")), "We also study the microalgae of industrial interest",
+                                                          tags$b(tags$i("Haematococcus lacustris")), "and", tags$b(tags$i("Chromocloris zofingiensis")), 
+                                                          "and crops such as", tags$b(tags$i("wheat or Triticum aestivium")), 
+                                                          "and", tags$b(tags$i("tomato or Solanum lycopersicum.")),
+                                                          tags$br(),
+                                                          "Our group in part of the", tags$a(target="_blank", href="https://www.ibvf.us-csic.es/", 
+                                                                                             tags$b("Institute for Plant Biochemistry and Photosynthesis (IBVF)")),
+                                                          "in Seville (Spain) a join center between the", tags$b("University of Seville"), "and",
+                                                          tags$b("Consejo Superior de Investigaciones Científicas (CSIC).")),
+                                                 tags$br(),
+                                                 tags$div(align="center",
+                                                          img(src='quimiostatos.jpg', align = "center", width=400),tags$br(),
+                                                          tags$b("Our photochemostat installations"), tags$br(),
+                                                 ), tags$br(), tags$br(),
+                                                 tags$div(align="center",
+                                                          splitLayout(
+                                                            cellWidths = c("33%", "33%", "33%"),
+                                                            tags$div(
+                                                              img(src='ostreococcus_tauri.png', align = "center", width=200), tags$br(),
+                                                              tags$b("Ostreococcus tauri"), tags$br(),
+                                                            ),
+                                                            tags$div(
+                                                              img(src='klebsormidium_nitens.png', align = "center", width=200), tags$br(),
+                                                              tags$b("Klebsormidium nitens"), tags$br(),
+                                                            ),
+                                                            tags$div(
+                                                              img(src='chromocloris_zofingiensis.png', align = "center", width=200), tags$br(),
+                                                              tags$b("Chromochloris zofingiensis"), tags$br(),
+                                                            )
+                                                          )), tags$br(), tags$br(),
+                                                 tags$div(align="center",
+                                                          splitLayout(
+                                                            cellWidths = c("33%", "33%", "33%"),
+                                                            tags$div(
+                                                              img(src='marchantia_polymorpha.png', align = "center", width=200), tags$br(),
+                                                              tags$b("Marchantia polymorpha"), tags$br(),
+                                                            ),
+                                                            tags$div(
+                                                              img(src='arabidopsis_thaliana.png', align = "center", width=200), tags$br(),
+                                                              tags$b("Arabidopsis thaliana"), tags$br(),
+                                                            ),
+                                                            tags$div(
+                                                              img(src='slycopersicum.png', align = "center", width=200), tags$br(),
+                                                              tags$b("Solanum lycopersicum"), tags$br(),
+                                                            )
+                                                          )), tags$br(), tags$br(),
+                                                 # 
+                                ),
+                                
+                                # Members
+                                conditionalPanel(condition = "input.navigation_bar == 'members'",
+                                                 tags$br(), tags$br(),
+                                                 tags$div(align = "justify", "Our research group is multidisciplinary
                                 constituted by molecular biologists, biochemists, computer and
                                 data scientists. We are NOT organised into a pyramidal or hierarchical 
                                 structure. We are just at different stages in our research careers and lifes
@@ -121,655 +267,655 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                 all have fun, learn, discover and grow as scientists and people. We all are 
                                 strongly committed to open, fair and ethical science. 
                                 "),
-                       tags$br(),
-                       tags$h3(tags$b("Principal Investigators:")),
-                       tags$br(),
-                       tags$div(align="center",
-                                splitLayout(
-                                 cellWidths = c("33%", "33%", "33%"),
-                                 tags$div(
-                                  img(src='mercedes.jpg', align = "center", width=160), tags$br(),
-                                  tags$b("Mercedes García-González"), tags$br(),
-                                  tags$b("Biologist"), tags$br(), tags$b("Associate Professor")
-                                 ),
-                                 tags$div(
-                                  img(src='fran.png', align = "center", width=160), tags$br(),
-                                  tags$b("Francisco J. Romero-Campero"), tags$br(),
-                                  tags$b("Computer and Data Scientist"), tags$br(), tags$b("Associate Professor")
-                                 ),
-                                 tags$div(
-                                  img(src='inma_couso.png', align = "center", width=160), tags$br(),
-                                  tags$b("Inmaculada Couso"), tags$br(),
-                                  tags$b("Molecular Biologist"), tags$br(),tags$b("Tenure Track Researcher")
-                                 )
-                                )),
-                       
-                       tags$br(),tags$br(),
-                       tags$h3(tags$b("Lab Technicians and Managers:")),
-                       tags$br(),
-                       
-                       tags$div(align="center",
-                                splitLayout(
-                                 cellWidths = c("33%", "33%", "33%"),
-                                 tags$div(
-                                  img(src='elena.png', align = "center", width=140), tags$br(),
-                                  tags$b("M. Elena García-Gómez"), tags$br(),
-                                  tags$b("Biologist"), tags$br(),tags$b("Lab Technician/Manager")
-                                 ),
-                                 tags$div(
-                                  img(src='alberto_barrero.jpg', align = "center", width=180), tags$br(),
-                                  tags$b("Alberto Barrero"), tags$br(),
-                                  tags$b("Biochemist"), tags$br(), 
-                                  tags$b("Master in Omics Data Analysis and Systems Biology"), tags$br(),
-                                  tags$b("Lab Technician")
-                                 ),
-##                                 tags$div(
-##                                  img(src='alberto_barrero.jpg', align = "center", width=180), tags$br(),
-##                                  tags$b("BORJA"), tags$br(),
-##                                  tags$b("-----------"), tags$br(),tags$b("-------------------")
-##                                 ),
-                                )),
-
-
-
-
-                       tags$br(),tags$br(),
-                       tags$h3(tags$b("PhD Students:")),
-                       tags$br(),
-                       
-                       tags$div(align="center",
-                                splitLayout(
-                                 cellWidths = c("33%", "33%", "33%"),
-                                 tags$div(
-                                  img(src='cristina.png', align = "center", width=150), tags$br(),
-                                  tags$b("Christina Arvanitidou"), tags$br(),
-                                  tags$b("Biologist / Computer and Data Scientist"), tags$br(),
-                                  tags$b("PhD Student Funded by"), tags$br(), tags$b("the Andalusian Goverment")
-                                 ),
-                                  tags$div(
-                                  img(src='emma.png', align = "center", width=150), tags$br(),
-                                  tags$b("Emma Serrano-Pérez"), tags$br(),
-                                  tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
-                                  tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
-                                  tags$b("PhD Student Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
-                                 ),
-                                 tags$div(
-                                  img(src='marcos2.jpeg', align = "center", width=150), tags$br(),
-                                  tags$b("Marcos Ramos-González"), tags$br(),
-                                  tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
-                                  tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
-                                  tags$b("PhD Student FPU Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
-                                 )
-                                )),
-                       
-                       tags$br(),
-
-                       tags$div(align="center",
-                                splitLayout(
-                                 cellWidths = c("50%", "50%"),
-                                 tags$div(
-                                  img(src='roda.png', align = "center", width=180), tags$br(),
-                                  tags$b("Rodrigo Bedera"), tags$br(),
-                                  tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
-                                  tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
-                                  tags$b("PhD Student FPU Funded by the Ministry of Science and Innovation")
-                                 ),
-                                 tags$div(
-                                  img(src='diana.jpeg', align = "center", width=150), tags$br(),
-                                  tags$b("Diana-Andreea Baicea"), tags$br(),
-                                  tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
-                                  tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
-                                  tags$b("PhD Student FPI Funded by the Ministry of Science and Innovation")
-                                 )
-                                )),
-                       
-                       
-                       
-                       tags$br(),tags$br(),
-                       tags$h3(tags$b("Master Students:")),
-                       #tags$br(),
-                       
-                       tags$div(align="center",
-                                splitLayout(
-                                 cellWidths = c("50%", "50%"),
-                                 
-                                 tags$div(
-                                  img(src='maria_cruz.jpeg', align = "center", width=150), tags$br(),
-                                  tags$b("María Cruz-Adame"), tags$br(),
-                                  tags$b("Biochemist"), tags$br(),tags$b("Master in Genetics and Molecular Biology")
-                                 ),
-                                )),
-                       
-                       tags$h3(tags$b("Undergraduate Students:")),
-                       tags$br(),tags$br(),
-
-                       
-                       tags$h3(tags$b("Honorary Professor:")),
-                       tags$br(),
-                       
-                       tags$div(align="center",
-                                splitLayout(
-                                 cellWidths = c("100%"),
-                                 tags$div(
-                                  img(src='mgg.jpg', align = "center", width=300), tags$br(),
-                                  tags$b("Miguel García Guerrero"), tags$br(),
-                                  tags$b("Biologist")
-                                 )
-                                )),
-                       
-                       tags$h3(tags$b("Some pictures of our team building days out:")),
-                       tags$br(),tags$br(),
-                       img(src='rbmp2022.jpeg', align = "center", width=500), tags$br(),
-                       tags$b("September 2022 - XVI Meeting of Plant Molecular Biology (Seville)"), tags$br(),tags$br(),
-                       img(src='chiclana.jpeg', align = "center", width=500), tags$br(),
-                       tags$b("July 2022 - Beach in Chiclana (Cádiz)"), tags$br(),tags$br(),
-                       img(src='entrerramas.jpeg', align = "center", width=500), tags$br(),
-                       tags$b("July 2022 - Adventure Park Hanging in the Woods in Roche (Cádiz)"), tags$br(),tags$br(),
-                       img(src='almuerzo_navidad.png', align = "center", width=500), tags$br(),
-                       tags$b("December 2021 - Christmas Lunch in Seville"), tags$br(), tags$br(),tags$br(),
-                       # 
-     
-                       tags$h3(tags$b("Former Members:")),
-                       tags$br(),
-                       
-                       tags$div(align="center",
-                             splitLayout(
-                             cellWidths = c("33%", "33%", "33%"),
-
-                       tags$div(
-                       img(src='ana_belen.png', align = "center", width=230), tags$br(),
-                       tags$b("Ana B. Romero-Losada"), tags$br(),
-                       tags$b("Biochemist / Computer and Data Scientist"), 
-                       tags$br(),tags$b("Substitute Teaching Tutor"),
-                       tags$br(),tags$b("PhD Student")
-                     ),
-                       tags$div(
-                        img(src='maria.png', align = "center", width=160), tags$br(),
-                        tags$b("María Morales-Pineda"), tags$br(),
-                        tags$b("Biochemist"), tags$br(),tags$b("Lab Technician")
-                       ),
-                       tags$div(
-                        img(src='nuria.jpeg', align = "center", width=180), tags$br(),
-                        tags$b("Nuria Membrives"), tags$br(),
-                        tags$b("Biochemist"), tags$br(),tags$b("Lab Technician")
-                       ))),         
-
-                       tags$br(), tags$br(),
-
-                       tags$div(align="center",
-                                splitLayout(
-                                 cellWidths = c("50%", "50%"),
-                                 
-                       tags$div(
-                        img(src='jacob.png', align = "center", width=150), tags$br(),
-                        tags$b("Jacob González-Isa"), tags$br(),
-                        tags$b("Biochemist")
-                             ),
-
-                       tags$div(
-                         img(src='andrea_garcia.jpg', align = "center", width=150), tags$br(),
-                         tags$b("Andrea García-Alcaide"), tags$br(),
-                         tags$b("Biotechnologist"), tags$br(),tags$b("Master in Omics Data Analysis and Systems Biology")
-                                 ),
-                                )),
-                       
-                       tags$br(), tags$br()
-       ),
-      
-      
-      
-      # Papers
-      conditionalPanel(condition = "input.navigation_bar == 'papers'",
-                       tags$br(),tags$br(),
-                       tags$div(align = "justify", "Below you can find a list of
+                                                 tags$br(),
+                                                 tags$h3(tags$b("Principal Investigators:")),
+                                                 tags$br(),
+                                                 tags$div(align="center",
+                                                          splitLayout(
+                                                            cellWidths = c("33%", "33%", "33%"),
+                                                            tags$div(
+                                                              img(src='mercedes.jpg', align = "center", width=160), tags$br(),
+                                                              tags$b("Mercedes García-González"), tags$br(),
+                                                              tags$b("Biologist"), tags$br(), tags$b("Associate Professor")
+                                                            ),
+                                                            tags$div(
+                                                              img(src='fran.png', align = "center", width=160), tags$br(),
+                                                              tags$b("Francisco J. Romero-Campero"), tags$br(),
+                                                              tags$b("Computer and Data Scientist"), tags$br(), tags$b("Associate Professor")
+                                                            ),
+                                                            tags$div(
+                                                              img(src='inma_couso.png', align = "center", width=160), tags$br(),
+                                                              tags$b("Inmaculada Couso"), tags$br(),
+                                                              tags$b("Molecular Biologist"), tags$br(),tags$b("Tenure Track Researcher")
+                                                            )
+                                                          )),
+                                                 
+                                                 tags$br(),tags$br(),
+                                                 tags$h3(tags$b("Lab Technicians and Managers:")),
+                                                 tags$br(),
+                                                 
+                                                 tags$div(align="center",
+                                                          splitLayout(
+                                                            cellWidths = c("33%", "33%", "33%"),
+                                                            tags$div(
+                                                              img(src='elena.png', align = "center", width=140), tags$br(),
+                                                              tags$b("M. Elena García-Gómez"), tags$br(),
+                                                              tags$b("Biologist"), tags$br(),tags$b("Lab Technician/Manager")
+                                                            ),
+                                                            tags$div(
+                                                              img(src='alberto_barrero.jpg', align = "center", width=180), tags$br(),
+                                                              tags$b("Alberto Barrero"), tags$br(),
+                                                              tags$b("Biochemist"), tags$br(), 
+                                                              tags$b("Master in Omics Data Analysis and Systems Biology"), tags$br(),
+                                                              tags$b("Lab Technician")
+                                                            ),
+                                                            ##                                 tags$div(
+                                                            ##                                  img(src='alberto_barrero.jpg', align = "center", width=180), tags$br(),
+                                                            ##                                  tags$b("BORJA"), tags$br(),
+                                                            ##                                  tags$b("-----------"), tags$br(),tags$b("-------------------")
+                                                            ##                                 ),
+                                                          )),
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 tags$br(),tags$br(),
+                                                 tags$h3(tags$b("PhD Students:")),
+                                                 tags$br(),
+                                                 
+                                                 tags$div(align="center",
+                                                          splitLayout(
+                                                            cellWidths = c("33%", "33%", "33%"),
+                                                            tags$div(
+                                                              img(src='cristina.png', align = "center", width=150), tags$br(),
+                                                              tags$b("Christina Arvanitidou"), tags$br(),
+                                                              tags$b("Biologist / Computer and Data Scientist"), tags$br(),
+                                                              tags$b("PhD Student Funded by"), tags$br(), tags$b("the Andalusian Goverment")
+                                                            ),
+                                                            tags$div(
+                                                              img(src='emma.png', align = "center", width=150), tags$br(),
+                                                              tags$b("Emma Serrano-Pérez"), tags$br(),
+                                                              tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
+                                                              tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
+                                                              tags$b("PhD Student Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
+                                                            ),
+                                                            tags$div(
+                                                              img(src='marcos2.jpeg', align = "center", width=150), tags$br(),
+                                                              tags$b("Marcos Ramos-González"), tags$br(),
+                                                              tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
+                                                              tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
+                                                              tags$b("PhD Student FPU Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
+                                                            )
+                                                          )),
+                                                 
+                                                 tags$br(),
+                                                 
+                                                 tags$div(align="center",
+                                                          splitLayout(
+                                                            cellWidths = c("50%", "50%"),
+                                                            tags$div(
+                                                              img(src='roda.png', align = "center", width=180), tags$br(),
+                                                              tags$b("Rodrigo Bedera"), tags$br(),
+                                                              tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
+                                                              tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
+                                                              tags$b("PhD Student FPU Funded by the Ministry of Science and Innovation")
+                                                            ),
+                                                            tags$div(
+                                                              img(src='diana.jpeg', align = "center", width=150), tags$br(),
+                                                              tags$b("Diana-Andreea Baicea"), tags$br(),
+                                                              tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
+                                                              tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
+                                                              tags$b("PhD Student FPI Funded by the Ministry of Science and Innovation")
+                                                            )
+                                                          )),
+                                                 
+                                                 
+                                                 
+                                                 tags$br(),tags$br(),
+                                                 tags$h3(tags$b("Master Students:")),
+                                                 #tags$br(),
+                                                 
+                                                 tags$div(align="center",
+                                                          splitLayout(
+                                                            cellWidths = c("50%", "50%"),
+                                                            
+                                                            tags$div(
+                                                              img(src='maria_cruz.jpeg', align = "center", width=150), tags$br(),
+                                                              tags$b("María Cruz-Adame"), tags$br(),
+                                                              tags$b("Biochemist"), tags$br(),tags$b("Master in Genetics and Molecular Biology")
+                                                            ),
+                                                          )),
+                                                 
+                                                 tags$h3(tags$b("Undergraduate Students:")),
+                                                 tags$br(),tags$br(),
+                                                 
+                                                 
+                                                 tags$h3(tags$b("Honorary Professor:")),
+                                                 tags$br(),
+                                                 
+                                                 tags$div(align="center",
+                                                          splitLayout(
+                                                            cellWidths = c("100%"),
+                                                            tags$div(
+                                                              img(src='mgg.jpg', align = "center", width=300), tags$br(),
+                                                              tags$b("Miguel García Guerrero"), tags$br(),
+                                                              tags$b("Biologist")
+                                                            )
+                                                          )),
+                                                 
+                                                 tags$h3(tags$b("Some pictures of our team building days out:")),
+                                                 tags$br(),tags$br(),
+                                                 img(src='rbmp2022.jpeg', align = "center", width=500), tags$br(),
+                                                 tags$b("September 2022 - XVI Meeting of Plant Molecular Biology (Seville)"), tags$br(),tags$br(),
+                                                 img(src='chiclana.jpeg', align = "center", width=500), tags$br(),
+                                                 tags$b("July 2022 - Beach in Chiclana (Cádiz)"), tags$br(),tags$br(),
+                                                 img(src='entrerramas.jpeg', align = "center", width=500), tags$br(),
+                                                 tags$b("July 2022 - Adventure Park Hanging in the Woods in Roche (Cádiz)"), tags$br(),tags$br(),
+                                                 img(src='almuerzo_navidad.png', align = "center", width=500), tags$br(),
+                                                 tags$b("December 2021 - Christmas Lunch in Seville"), tags$br(), tags$br(),tags$br(),
+                                                 # 
+                                                 
+                                                 tags$h3(tags$b("Former Members:")),
+                                                 tags$br(),
+                                                 
+                                                 tags$div(align="center",
+                                                          splitLayout(
+                                                            cellWidths = c("33%", "33%", "33%"),
+                                                            
+                                                            tags$div(
+                                                              img(src='ana_belen.png', align = "center", width=230), tags$br(),
+                                                              tags$b("Ana B. Romero-Losada"), tags$br(),
+                                                              tags$b("Biochemist / Computer and Data Scientist"), 
+                                                              tags$br(),tags$b("Substitute Teaching Tutor"),
+                                                              tags$br(),tags$b("PhD Student")
+                                                            ),
+                                                            tags$div(
+                                                              img(src='maria.png', align = "center", width=160), tags$br(),
+                                                              tags$b("María Morales-Pineda"), tags$br(),
+                                                              tags$b("Biochemist"), tags$br(),tags$b("Lab Technician")
+                                                            ),
+                                                            tags$div(
+                                                              img(src='nuria.jpeg', align = "center", width=180), tags$br(),
+                                                              tags$b("Nuria Membrives"), tags$br(),
+                                                              tags$b("Biochemist"), tags$br(),tags$b("Lab Technician")
+                                                            ))),         
+                                                 
+                                                 tags$br(), tags$br(),
+                                                 
+                                                 tags$div(align="center",
+                                                          splitLayout(
+                                                            cellWidths = c("50%", "50%"),
+                                                            
+                                                            tags$div(
+                                                              img(src='jacob.png', align = "center", width=150), tags$br(),
+                                                              tags$b("Jacob González-Isa"), tags$br(),
+                                                              tags$b("Biochemist")
+                                                            ),
+                                                            
+                                                            tags$div(
+                                                              img(src='andrea_garcia.jpg', align = "center", width=150), tags$br(),
+                                                              tags$b("Andrea García-Alcaide"), tags$br(),
+                                                              tags$b("Biotechnologist"), tags$br(),tags$b("Master in Omics Data Analysis and Systems Biology")
+                                                            ),
+                                                          )),
+                                                 
+                                                 tags$br(), tags$br()
+                                ),
+                                
+                                
+                                
+                                # Papers
+                                conditionalPanel(condition = "input.navigation_bar == 'papers'",
+                                                 tags$br(),tags$br(),
+                                                 tags$div(align = "justify", "Below you can find a list of
                                 the papers published by members of our group in
                                 the last years:"),
-                       tags$br(),
-
-                       tags$h2(tags$b("2026")),
-                       
-                       tags$div(align="justify",
-                                tags$ul(
-                                 
-                                 tags$br(),
-                                 
-                                 tags$li(tags$a(target="_blank", href="https://onlinelibrary.wiley.com/doi/10.1111/plb.70204",
-                                                 "Martínez-Pérez A, de la Mata R, Romero-Campero FJ, Gómez R, Calonje M, Romero JM, Ruiz MT, Valverde F, Picó FX. (2026)",
-                                                 tags$b("Locally adapted Arabidopsis thaliana accessions show transcriptomic plasticity in a multi-timescale analysis of whole-genome gene expression in a natural environment."),
-                                                 "Plant Biology. doi: 10.1111/plb.70204")),
-
-                                   tags$br(),
-
-                                   tags$li(tags$a(target="_blank", href="https://www.mdpi.com/2223-7747/15/6/902",
-                                                 "Morales-Pineda M, García-González M, García-Gómez ME, Romero-Campero FJ, Ramos-González M. (2026)",
-                                                 tags$b("Acute Combination of Nitrogen Deprivation and High Irradiance Induces the Simultaneous Accumulation of Astaxanthin and Lutein in Continuous Cultures of the Microalga Chromochloris zofingiensis."),
-                                                 "Plants 15(6):902. doi: 10.3390/plants15060902")),
-
-                                   tags$br(),
-
-                                   tags$li(tags$a(target="_blank", href="https://academic.oup.com/mbe/article/43/2/msag011/8438624",
-                                                 "Ramos-González M, Ramos-González V, Serrano-Pérez E, Arvanitidou C, Hernández-García J, García-González M, Romero-Campero FJ. (2026)",
-                                                 tags$b("PharaohFUN: phylogenomic analysis for plant protein history and function elucidation."),
-                                                 "Molecular Biology and Evolution 43(2):msag011. doi: 10.1093/molbev/msag011")),
-                                )),
-                       
-                       tags$br(),
-
-
-                       tags$h2(tags$b("2025")),
-                       
-                       tags$div(align="justify",
-                                tags$ul(
-                                 
-                                 tags$br(),
-                                 
-                                 
-                                 tags$li(tags$a(target="_blank", href="https://academic.oup.com/plcell/article/37/2/koaf033/8009039",
-                                                 "Romero-Losada AB, Arvanitidou C, García-Gómez ME, Morales-Pineda M, Castro-Pérez MJ, Chew YP, Van Ooijen G, García-González M, Romero-Campero FJ. (2025)",
-                                                 tags$b("Multiomics integration unveils photoperiodic plasticity in the molecular rhythms of marine phytoplankton."),
-                                                 "Plant Cell 37(2):koaf033. doi: 10.1093/plcell/koaf033")),
-
-                                 tags$br(),
-
-                                 tags$li(tags$a(target="_blank", href="https://onlinelibrary.wiley.com/doi/10.1111/ppl.70089",
-                                                 "Bedera-García R, García-Gómez ME, Personat JM, Couso I. (2025)",
-                                                 tags$b("Inositol polyphosphates regulate resilient mechanisms in the green alga Chlamydomonas reinhardtii to adapt to extreme nutrient conditions."),
-                                                 "Physiologia Plantarum 177(1):e70089. doi: 10.1111/ppl.70089")),
-                                )),
-                       
-                       tags$br(),
-                       
-
-                       tags$h2(tags$b("2024")),
-                       
-                       tags$div(align="justify",
-                                tags$ul(
-                                 
-                                 tags$br(),
-                                 
-                                 
-                                 tags$li(tags$a(target="_blank", href="https://doi.org/10.1002/jsfa.13422", 
-                                                "Arvanitidou C, Ramos-González M, Romero-Losada AB, García-Gómez ME, García-González M, Romero-Campero FJ. (2024)", 
-                                                tags$b("Transcriptomic characterization of the response to a microalgae extract in Arabidopsis thaliana and Solanum lycopersicum."), 
-                                                "Journal of the Science of Food and Agriculture.
+                                                 tags$br(),
+                                                 
+                                                 tags$h2(tags$b("2026")),
+                                                 
+                                                 tags$div(align="justify",
+                                                          tags$ul(
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://onlinelibrary.wiley.com/doi/10.1111/plb.70204",
+                                                                           "Martínez-Pérez A, de la Mata R, Romero-Campero FJ, Gómez R, Calonje M, Romero JM, Ruiz MT, Valverde F, Picó FX. (2026)",
+                                                                           tags$b("Locally adapted Arabidopsis thaliana accessions show transcriptomic plasticity in a multi-timescale analysis of whole-genome gene expression in a natural environment."),
+                                                                           "Plant Biology. doi: 10.1111/plb.70204")),
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://www.mdpi.com/2223-7747/15/6/902",
+                                                                           "Morales-Pineda M, García-González M, García-Gómez ME, Romero-Campero FJ, Ramos-González M. (2026)",
+                                                                           tags$b("Acute Combination of Nitrogen Deprivation and High Irradiance Induces the Simultaneous Accumulation of Astaxanthin and Lutein in Continuous Cultures of the Microalga Chromochloris zofingiensis."),
+                                                                           "Plants 15(6):902. doi: 10.3390/plants15060902")),
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://academic.oup.com/mbe/article/43/2/msag011/8438624",
+                                                                           "Ramos-González M, Ramos-González V, Serrano-Pérez E, Arvanitidou C, Hernández-García J, García-González M, Romero-Campero FJ. (2026)",
+                                                                           tags$b("PharaohFUN: phylogenomic analysis for plant protein history and function elucidation."),
+                                                                           "Molecular Biology and Evolution 43(2):msag011. doi: 10.1093/molbev/msag011")),
+                                                          )),
+                                                 
+                                                 tags$br(),
+                                                 
+                                                 
+                                                 tags$h2(tags$b("2025")),
+                                                 
+                                                 tags$div(align="justify",
+                                                          tags$ul(
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://academic.oup.com/plcell/article/37/2/koaf033/8009039",
+                                                                           "Romero-Losada AB, Arvanitidou C, García-Gómez ME, Morales-Pineda M, Castro-Pérez MJ, Chew YP, Van Ooijen G, García-González M, Romero-Campero FJ. (2025)",
+                                                                           tags$b("Multiomics integration unveils photoperiodic plasticity in the molecular rhythms of marine phytoplankton."),
+                                                                           "Plant Cell 37(2):koaf033. doi: 10.1093/plcell/koaf033")),
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://onlinelibrary.wiley.com/doi/10.1111/ppl.70089",
+                                                                           "Bedera-García R, García-Gómez ME, Personat JM, Couso I. (2025)",
+                                                                           tags$b("Inositol polyphosphates regulate resilient mechanisms in the green alga Chlamydomonas reinhardtii to adapt to extreme nutrient conditions."),
+                                                                           "Physiologia Plantarum 177(1):e70089. doi: 10.1111/ppl.70089")),
+                                                          )),
+                                                 
+                                                 tags$br(),
+                                                 
+                                                 
+                                                 tags$h2(tags$b("2024")),
+                                                 
+                                                 tags$div(align="justify",
+                                                          tags$ul(
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://doi.org/10.1002/jsfa.13422", 
+                                                                           "Arvanitidou C, Ramos-González M, Romero-Losada AB, García-Gómez ME, García-González M, Romero-Campero FJ. (2024)", 
+                                                                           tags$b("Transcriptomic characterization of the response to a microalgae extract in Arabidopsis thaliana and Solanum lycopersicum."), 
+                                                                           "Journal of the Science of Food and Agriculture.
                                 doi: 10.1002/jsfa.13422")),
-
-                                 tags$br(),
-                                 
-                                 tags$li(tags$a(target="_blank", href="https://www.cell.com/molecular-plant/fulltext/S1674-2052(24)00186-2?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS1674205224001862%3Fshowall%3Dtrue",
-                                 "de Los Reyes P, Serrano-Bueno G, Romero-Campero FJ, Gao H, Romero JM, Valverde F. (2024)",
-                                 tags$b("CONSTANS alters the circadian clock in Arabidopsis thaliana."),
-                                 "Molecular Plant 17(8):1204-1220. doi: 10.1016/j.molp.2024.06.006")),
-
-                                 tags$br(),
-
-                                 tags$li(tags$a(target="_blank", href="https://doi.org/10.1093/plcell/koad288", 
-                                                "Liu C, Mentzelopoulou A, Hatzianestis IH, Tzagkarakis E, Skaltsogiannis V, 
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://www.cell.com/molecular-plant/fulltext/S1674-2052(24)00186-2?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS1674205224001862%3Fshowall%3Dtrue",
+                                                                           "de Los Reyes P, Serrano-Bueno G, Romero-Campero FJ, Gao H, Romero JM, Valverde F. (2024)",
+                                                                           tags$b("CONSTANS alters the circadian clock in Arabidopsis thaliana."),
+                                                                           "Molecular Plant 17(8):1204-1220. doi: 10.1016/j.molp.2024.06.006")),
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://doi.org/10.1093/plcell/koad288", 
+                                                                           "Liu C, Mentzelopoulou A, Hatzianestis IH, Tzagkarakis E, Skaltsogiannis V, 
                                                 Ma X, Michalopoulou VA, Romero-Campero FJ, Romero-Losada AB, Sarris PF, 
                                                 Marhavy P, Bölter B, Kanterakis A, Gutierrez-Beltran E, Moschou PN. (2024)", 
-                                                tags$b("A proxitome-RNA-capture approach reveals that processing bodies 
+                                                                           tags$b("A proxitome-RNA-capture approach reveals that processing bodies 
                                                        repress co-regulated hub genes."), 
-                                                "Plant Cell 36:559-584.
+                                                                           "Plant Cell 36:559-584.
                                 doi: 10.1093/plcell/koad288")),
-                                 
-                                 tags$br(),
-                                 
-                                 
-                                 tags$li(tags$a(target="_blank", href="https://doi.org/10.1111/nph.19420", 
-                                                "van Es SW, Muñoz-Gasca A, Romero-Campero FJ, González-Grandío E, de Los Reyes P, Tarancón C, van Dijk ADJ, van Esse W, Pascual-García A, Angenent GC, Immink RGH, Cubas P. (2024)", tags$b("CO2 Levels Modulate Carbon Utilization, 
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://doi.org/10.1111/nph.19420", 
+                                                                           "van Es SW, Muñoz-Gasca A, Romero-Campero FJ, González-Grandío E, de Los Reyes P, Tarancón C, van Dijk ADJ, van Esse W, Pascual-García A, Angenent GC, Immink RGH, Cubas P. (2024)", tags$b("CO2 Levels Modulate Carbon Utilization, 
                                 
 A gene regulatory network critical for axillary bud dormancy directly controlled by Arabidopsis BRANCHED1."), 
-                                                "New Phytologist 241:1193-1209.
+                                                                           "New Phytologist 241:1193-1209.
                                 doi: 10.1111/nph.19420")),
-                                )),
-                       
-                       tags$br(),
-                       
-                       
-                       
-                       tags$h2(tags$b("2023")),
-                       
-                       tags$div(align="justify",
-                                tags$ul(
-                                 
-                                 
-                                 tags$li(tags$a(target="_blank", href=" https://doi.org/10.1093/plcell/koad112", 
-                                                "Yin X, Romero-Campero FJ, Yang M, Baile F, Cao Y, Shu J, Luo L, 
+                                                          )),
+                                                 
+                                                 tags$br(),
+                                                 
+                                                 
+                                                 
+                                                 tags$h2(tags$b("2023")),
+                                                 
+                                                 tags$div(align="justify",
+                                                          tags$ul(
+                                                            
+                                                            
+                                                            tags$li(tags$a(target="_blank", href=" https://doi.org/10.1093/plcell/koad112", 
+                                                                           "Yin X, Romero-Campero FJ, Yang M, Baile F, Cao Y, Shu J, Luo L, 
                                                 Wang D, Sun S, Yan P, Gong Z, Mo X, Qin G, Calonje M, Zhou Y.(2023)", 
-                                                tags$b("Binding by the Polycomb complex component BMI1 and H2A 
+                                                                           tags$b("Binding by the Polycomb complex component BMI1 and H2A 
                                                        monoubiquitination shape local and long-range interactions in the Arabidopsis genome."), 
-                                                "Plant Cell 35:2484-2503.
+                                                                           "Plant Cell 35:2484-2503.
                                 doi: 10.1093/plcell/koad112")),
-                                 
-                                 tags$br(),
-                                 
-                                 
-                                 tags$li(tags$a(target="_blank", href="https://doi.org/10.3390/plants12010129", 
-                                                "Morales-Pineda M, García-Gómez ME, Bedera-García R, García-González M,  
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://doi.org/10.3390/plants12010129", 
+                                                                           "Morales-Pineda M, García-Gómez ME, Bedera-García R, García-González M,  
                                 Couso I. (2023)", tags$b("CO2 Levels Modulate Carbon Utilization, 
                                 Energy Levels and Inositol Polyphosphate Profile in Chlorella."), 
-                                                "Plants 12:129.
+                                                                           "Plants 12:129.
                                 doi: 10.3390/plants12010129")),
-                                )),
-                       
-                       tags$br(),
-                       
-                       tags$h2(tags$b("2022")),
-                       
-                       tags$div(align="justify",
-                       tags$ul(
-                        
-                        tags$li(tags$a(target="_blank", href="https://www.frontiersin.org/articles/10.3389/fpls.2022.855243/full", 
-                               "Serrano-Pérez E, Romero-Losada AB, Morales-Pineda M, 
+                                                          )),
+                                                 
+                                                 tags$br(),
+                                                 
+                                                 tags$h2(tags$b("2022")),
+                                                 
+                                                 tags$div(align="justify",
+                                                          tags$ul(
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://www.frontiersin.org/articles/10.3389/fpls.2022.855243/full", 
+                                                                           "Serrano-Pérez E, Romero-Losada AB, Morales-Pineda M, 
                                 García-Gómez ME, Couso I, García-González M, 
                                 Romero-Campero FJ. (2022)", tags$b("Transcriptomic and Metabolomic 
                                 Response to High Light in the Charophyte Alga 
                                 Klebsormidium nitens."), "Frontiers in Plant Science 13:855243.
                                 doi: 10.3389/fpls.2022.855243")),
-                        
-                        tags$br(),
-                        
-                        tags$li(tags$a(target="_blank", href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-022-04639-5", 
-                                       "Romero-Losada AB, Arvanitidou C, de Los Reyes P, García-González M, 
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-022-04639-5", 
+                                                                           "Romero-Losada AB, Arvanitidou C, de Los Reyes P, García-González M, 
                                        Romero-Campero FJ. (2022)", tags$b("ALGAEFUN with MARACAS, microALGAE 
                                        FUNctional enrichment tool for MicroAlgae RnA-seq and Chip-seq AnalysiS."), 
-                                       "BMC Bioinformatics 23(1):113. doi: 10.1186/s12859-022-04639-5")),
-                        tags$br(),
-                        
-                        tags$li(tags$a(target="_blank", href="https://pubs.acs.org/doi/10.1021/acs.jafc.1c08100", 
-                                       "Fernández-Rodríguez MJ, de la Lama-Calvente D, García-González M, 
+                                                                           "BMC Bioinformatics 23(1):113. doi: 10.1186/s12859-022-04639-5")),
+                                                            tags$br(),
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://pubs.acs.org/doi/10.1021/acs.jafc.1c08100", 
+                                                                           "Fernández-Rodríguez MJ, de la Lama-Calvente D, García-González M, 
                                        Moreno-Fernández J, Jiménez-Rodríguez A, Borja R, Rincón-Llorente B. (2022)", 
-                                       tags$b("Integral Valorization of Two-Phase 
+                                                                           tags$b("Integral Valorization of Two-Phase 
                                        Olive Mill Solid Waste (OMSW) and Related Washing Waters by Anaerobic 
                                        Co-digestion of OMSW and the Microalga Raphidocelis subcapitata Cultivated 
                                        in These Effluents ."), 
-                                       "Journal of Agricultural and Food Chemistry.70(10):3219-3227. doi: 10.1021/acs.jafc.1c08100"))
-                        
-                       )),
-                       
-                       tags$div(align="center", tags$h2(tags$b("2021"))),
-                       
-                       tags$div(align="justify",
-                                tags$ul(
-                                 tags$li(tags$a(target="_blank", href="https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.17741", 
-                                                "Couso I, Smythers AL, Ford MM, Umen JG, Crespo JL, Hicks LM. (2021)", 
-                                                tags$b("Inositol polyphosphates and target of rapamycin kinase signalling 
+                                                                           "Journal of Agricultural and Food Chemistry.70(10):3219-3227. doi: 10.1021/acs.jafc.1c08100"))
+                                                            
+                                                          )),
+                                                 
+                                                 tags$div(align="center", tags$h2(tags$b("2021"))),
+                                                 
+                                                 tags$div(align="justify",
+                                                          tags$ul(
+                                                            tags$li(tags$a(target="_blank", href="https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.17741", 
+                                                                           "Couso I, Smythers AL, Ford MM, Umen JG, Crespo JL, Hicks LM. (2021)", 
+                                                                           tags$b("Inositol polyphosphates and target of rapamycin kinase signalling 
                                                        govern photosystem II protein phosphorylation and photosynthetic 
                                                        function under light stress in Chlamydomonas ."), 
-                                                "New Phytologist. 232(5):2011-2025. doi: 10.1111/nph.17741.")),
-                                 
-                                 tags$br(),
-                                 
-                                 tags$li(tags$a(target="_blank", href="https://www.sciencedirect.com/science/article/abs/pii/S0960852421004892?via%3Dihub", 
-                                                "Hoys C, Romero-Losada AB, Del Río E, Guerrero MG, Romero-Campero FJ, 
+                                                                           "New Phytologist. 232(5):2011-2025. doi: 10.1111/nph.17741.")),
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://www.sciencedirect.com/science/article/abs/pii/S0960852421004892?via%3Dihub", 
+                                                                           "Hoys C, Romero-Losada AB, Del Río E, Guerrero MG, Romero-Campero FJ, 
                                                 García-González M. (2021)", tags$b("Unveiling the underlying molecular basis of astaxanthin 
                                                 accumulation in Haematococcus through integrative metabolomic-transcriptomic analysis."), 
-                                                "Bioresource Technology. 332:125150. doi: 10.1016/j.biortech.2021.125150.")),
-                                 tags$br(),
-                                 
-                                 tags$li(tags$a(target="_blank", href="https://www.nature.com/articles/s41467-020-20614-1", 
-                                                "Yin X, Romero-Campero FJ, de Los Reyes P, Yan P, Yang J, Tian G, Yang X, Mo X, Zhao S, 
+                                                                           "Bioresource Technology. 332:125150. doi: 10.1016/j.biortech.2021.125150.")),
+                                                            tags$br(),
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://www.nature.com/articles/s41467-020-20614-1", 
+                                                                           "Yin X, Romero-Campero FJ, de Los Reyes P, Yan P, Yang J, Tian G, Yang X, Mo X, Zhao S, 
                                                 Calonje M, Zhou Y. (2021)", 
-                                                tags$b("H2AK121ub in Arabidopsis associates with a less accessible chromatin state at 
+                                                                           tags$b("H2AK121ub in Arabidopsis associates with a less accessible chromatin state at 
                                                        transcriptional regulation hotspots."), 
-                                                "Nature Communications. 12(1):315. doi: 10.1038/s41467-020-20614-1.")),
-                                 
-                                 tags$br(),
-                                 
-                                 tags$li(tags$a(target="_blank", href="https://academic.oup.com/plphys/article/187/1/88/6284975?login=false", 
-                                                "Ojeda V, Jiménez-López J, Romero-Campero FJ, Cejudo FJ, Pérez-Ruiz JM. (2021)", 
-                                                tags$b("A chloroplast redox relay adapts plastid metabolism to light and affects 
+                                                                           "Nature Communications. 12(1):315. doi: 10.1038/s41467-020-20614-1.")),
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://academic.oup.com/plphys/article/187/1/88/6284975?login=false", 
+                                                                           "Ojeda V, Jiménez-López J, Romero-Campero FJ, Cejudo FJ, Pérez-Ruiz JM. (2021)", 
+                                                                           tags$b("A chloroplast redox relay adapts plastid metabolism to light and affects 
                                                        cytosolic protein quality control."), 
-                                                "Plant Physiology. 187(1):88-102. doi: 10.1093/plphys/kiab246.")),
-                                 
-                                 tags$br(),
-                                 
-                                 tags$li(tags$a(target="_blank", href="https://academic.oup.com/nar/article/49/15/8757/6348197?login=false", 
-                                                "Santamaría-Gómez J, Rubio MÁ, López-Igual R, Romero-Losada AB, Delgado-Chaves FM, 
+                                                                           "Plant Physiology. 187(1):88-102. doi: 10.1093/plphys/kiab246.")),
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://academic.oup.com/nar/article/49/15/8757/6348197?login=false", 
+                                                                           "Santamaría-Gómez J, Rubio MÁ, López-Igual R, Romero-Losada AB, Delgado-Chaves FM, 
                                                 Bru-Martínez R, Romero-Campero FJ, Herrero A, Ibba M, Ochoa de Alda JAG, Luque I. (2021)", 
-                                                tags$b("Role of a cryptic tRNA gene operon in survival under translational stress."), 
-                                                "Nucleic Acids Research. 49(15):8757-8776. doi: 10.1093/nar/gkab661.")),
-                                 
-                                 tags$br(),
-                                 
-                                 tags$li(tags$a(target="_blank", href="https://www.frontiersin.org/articles/10.3389/fpls.2021.633979/full", 
-                                                "Sánchez-Cabrera M, Jiménez-López FJ, Narbona E, Arista M, Ortiz PL, 
+                                                                           tags$b("Role of a cryptic tRNA gene operon in survival under translational stress."), 
+                                                                           "Nucleic Acids Research. 49(15):8757-8776. doi: 10.1093/nar/gkab661.")),
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://www.frontiersin.org/articles/10.3389/fpls.2021.633979/full", 
+                                                                           "Sánchez-Cabrera M, Jiménez-López FJ, Narbona E, Arista M, Ortiz PL, 
                                                 Romero-Campero FJ, Ramanauskas K, Igić B, Fuller AA, Whittall JB. (2021)", 
-                                                tags$b("Changes at a Critical Branchpoint in the Anthocyanin Biosynthetic 
+                                                                           tags$b("Changes at a Critical Branchpoint in the Anthocyanin Biosynthetic 
                                                        Pathway Underlie the Blue to Orange Flower Color Transition in Lysimachia arvensis."), 
-                                                "Frontiers in Plant Science. 12:633979. doi: 10.3389/fpls.2021.633979.")),
-                                 
-                                 
-                                 
-                                )),
-                       
-                       
-                       tags$div(align="center", tags$h2(tags$b("2020"))),
-                       
-                       tags$div(align="justify",
-                                tags$ul(
-                                 tags$li(tags$a(target="_blank", href="https://academic.oup.com/plcell/article/32/1/69/6099200?login=false", 
-                                                "Couso I, Pérez-Pérez ME, Ford MM, Martínez-Force E, Hicks LM, Umen JG, Crespo JL. (2020)", 
-                                                tags$b("Phosphorus Availability Regulates TORC1 Signaling via LST8 in Chlamydomonas."), 
-                                                "Plant Cell. 32(1):69-80. doi: 10.1105/tpc.19.00179.")),
-
-                                )),
-                       
-                       
-                       tags$div(align="center", tags$h2(tags$b("2019"))),
-                       
-                       tags$div(align="justify",
-                                tags$ul(
-                                 tags$li(tags$a(target="_blank", href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-019-5430-x", 
-                                                "Ruger-Herreros M, Parra-Rivero O, Pardo-Medina J, Romero-Campero FJ, Limón MC, Avalos J. (2019)", 
-                                                tags$b("Comparative transcriptomic analysis unveils interactions between the regulatory CarS 
+                                                                           "Frontiers in Plant Science. 12:633979. doi: 10.3389/fpls.2021.633979.")),
+                                                            
+                                                            
+                                                            
+                                                          )),
+                                                 
+                                                 
+                                                 tags$div(align="center", tags$h2(tags$b("2020"))),
+                                                 
+                                                 tags$div(align="justify",
+                                                          tags$ul(
+                                                            tags$li(tags$a(target="_blank", href="https://academic.oup.com/plcell/article/32/1/69/6099200?login=false", 
+                                                                           "Couso I, Pérez-Pérez ME, Ford MM, Martínez-Force E, Hicks LM, Umen JG, Crespo JL. (2020)", 
+                                                                           tags$b("Phosphorus Availability Regulates TORC1 Signaling via LST8 in Chlamydomonas."), 
+                                                                           "Plant Cell. 32(1):69-80. doi: 10.1105/tpc.19.00179.")),
+                                                            
+                                                          )),
+                                                 
+                                                 
+                                                 tags$div(align="center", tags$h2(tags$b("2019"))),
+                                                 
+                                                 tags$div(align="justify",
+                                                          tags$ul(
+                                                            tags$li(tags$a(target="_blank", href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-019-5430-x", 
+                                                                           "Ruger-Herreros M, Parra-Rivero O, Pardo-Medina J, Romero-Campero FJ, Limón MC, Avalos J. (2019)", 
+                                                                           tags$b("Comparative transcriptomic analysis unveils interactions between the regulatory CarS 
                                                        protein and light response in Fusarium."), 
-                                                "BMC Genomics. 20(1):67. doi: 10.1186/s12864-019-5430-x.")),
-                                 
-                                )),
-                       
-                       tags$div(align="center", tags$h2(tags$b("2018"))),
-                       
-                       tags$div(align="justify",
-                                tags$ul(
-                                 tags$li(tags$a(target="_blank", href="https://academic.oup.com/jxb/article/69/6/1355/4557897?login=false", 
-                                                "Couso I, Pérez-Pérez ME, Martínez-Force E, Kim HS, He Y, Umen JG, Crespo JL. (2018)", 
-                                                tags$b("Autophagic flux is required for the synthesis of triacylglycerols and ribosomal
+                                                                           "BMC Genomics. 20(1):67. doi: 10.1186/s12864-019-5430-x.")),
+                                                            
+                                                          )),
+                                                 
+                                                 tags$div(align="center", tags$h2(tags$b("2018"))),
+                                                 
+                                                 tags$div(align="justify",
+                                                          tags$ul(
+                                                            tags$li(tags$a(target="_blank", href="https://academic.oup.com/jxb/article/69/6/1355/4557897?login=false", 
+                                                                           "Couso I, Pérez-Pérez ME, Martínez-Force E, Kim HS, He Y, Umen JG, Crespo JL. (2018)", 
+                                                                           tags$b("Autophagic flux is required for the synthesis of triacylglycerols and ribosomal
                                                        protein turnover in Chlamydomonas."), 
-                                                "Journal of Experimental Botany. 69(6):1355-1367. doi: 10.1093/jxb/erx372.")),
-                                 
-                                )),
-                       
-                       
-                       tags$div(align="center", tags$h2(tags$b("2017"))),
-                       
-                       tags$div(align="justify",
-                                tags$ul(
-                                 tags$li(tags$a(target="_blank", href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1197-z", 
-                                                "Zhou Y, Romero-Campero FJ, Gómez-Zambrano Á, Turck F, Calonje M. (2017)", 
-                                                tags$b("H2A monoubiquitination in Arabidopsis thaliana is generally 
+                                                                           "Journal of Experimental Botany. 69(6):1355-1367. doi: 10.1093/jxb/erx372.")),
+                                                            
+                                                          )),
+                                                 
+                                                 
+                                                 tags$div(align="center", tags$h2(tags$b("2017"))),
+                                                 
+                                                 tags$div(align="justify",
+                                                          tags$ul(
+                                                            tags$li(tags$a(target="_blank", href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1197-z", 
+                                                                           "Zhou Y, Romero-Campero FJ, Gómez-Zambrano Á, Turck F, Calonje M. (2017)", 
+                                                                           tags$b("H2A monoubiquitination in Arabidopsis thaliana is generally 
                                                        independent of LHP1 and PRC2 activity."), 
-                                                "Genome Biology. 18(1):69. doi: 10.1186/s13059-017-1197-z.")),
-                                 
-                                 tags$br(),
-                                 
-                                 tags$li(tags$a(target="_blank", href="https://academic.oup.com/plphys/article/173/1/627/6116028?login=false", 
-                                                "Merini W, Romero-Campero FJ, Gomez-Zambrano A, Zhou Y, Turck F, Calonje M. (2017)", 
-                                                tags$b("The Arabidopsis Polycomb Repressive Complex 1 (PRC1) Components AtBMI1A, B, 
+                                                                           "Genome Biology. 18(1):69. doi: 10.1186/s13059-017-1197-z.")),
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://academic.oup.com/plphys/article/173/1/627/6116028?login=false", 
+                                                                           "Merini W, Romero-Campero FJ, Gomez-Zambrano A, Zhou Y, Turck F, Calonje M. (2017)", 
+                                                                           tags$b("The Arabidopsis Polycomb Repressive Complex 1 (PRC1) Components AtBMI1A, B, 
                                                        and C Impact Gene Networks throughout All Stages of Plant Development."), 
-                                                "Plant Physiology. 173(1):627-641. doi: 10.1104/pp.16.01259.")),
-                                 
-                                 tags$br(),
-                                 
-                                 tags$li(tags$a(target="_blank", href="https://www.frontiersin.org/articles/10.3389/fpls.2017.01217/full", 
-                                                "de Los Reyes P, Romero-Campero FJ, Ruiz MT, Romero JM, Valverde F. (2017)", 
-                                                tags$b("Evolution of Daily Gene Co-expression Patterns from Algae to Plants."), 
-                                                "Frontiers in Plant Science. 8:1217. doi: 10.3389/fpls.2017.01217.")),
-                                 
-                                 tags$br(),
-                                 
-                                 tags$li(tags$a(target="_blank", href="https://www.sciencedirect.com/science/article/abs/pii/S1369526616301686?via%3Dihub", 
-                                                "Serrano-Bueno G, Romero-Campero FJ, Lucas-Reina E, Romero JM, Valverde F. (2017)", 
-                                                tags$b("Evolution of photoperiod sensing in plants and algae."), 
-                                                "Current Opinion in Plant Biology. 37:10-17. doi: 10.1016/j.pbi.2017.03.007.")),
-                                 
-                                 tags$br(), 
-                                 
-                                 tags$li(tags$a(target="_blank", href="https://www.frontiersin.org/articles/10.3389/fpls.2017.00626/full", 
-                                                "Briones-Moreno A, Hernández-García J, Vargas-Chávez C, Romero-Campero FJ, 
+                                                                           "Plant Physiology. 173(1):627-641. doi: 10.1104/pp.16.01259.")),
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://www.frontiersin.org/articles/10.3389/fpls.2017.01217/full", 
+                                                                           "de Los Reyes P, Romero-Campero FJ, Ruiz MT, Romero JM, Valverde F. (2017)", 
+                                                                           tags$b("Evolution of Daily Gene Co-expression Patterns from Algae to Plants."), 
+                                                                           "Frontiers in Plant Science. 8:1217. doi: 10.3389/fpls.2017.01217.")),
+                                                            
+                                                            tags$br(),
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://www.sciencedirect.com/science/article/abs/pii/S1369526616301686?via%3Dihub", 
+                                                                           "Serrano-Bueno G, Romero-Campero FJ, Lucas-Reina E, Romero JM, Valverde F. (2017)", 
+                                                                           tags$b("Evolution of photoperiod sensing in plants and algae."), 
+                                                                           "Current Opinion in Plant Biology. 37:10-17. doi: 10.1016/j.pbi.2017.03.007.")),
+                                                            
+                                                            tags$br(), 
+                                                            
+                                                            tags$li(tags$a(target="_blank", href="https://www.frontiersin.org/articles/10.3389/fpls.2017.00626/full", 
+                                                                           "Briones-Moreno A, Hernández-García J, Vargas-Chávez C, Romero-Campero FJ, 
                                                 Romero JM, Valverde F, Blázquez MA. (2017)", 
-                                                tags$b("Evolutionary Analysis of DELLA-Associated Transcriptional Networks."), 
-                                                "Frontiers in Plant Science. 8:626. doi: 10.3389/fpls.2017.00626.")),
-                                 
-                                 tags$br(), 
-                                )),
-      ),
-      
-      # Tools
-      conditionalPanel(condition = "input.navigation_bar == 'tools'",
-                       tags$br(),tags$br(),
-                       tags$div(align = "justify", "One of the main goals of our group is
+                                                                           tags$b("Evolutionary Analysis of DELLA-Associated Transcriptional Networks."), 
+                                                                           "Frontiers in Plant Science. 8:626. doi: 10.3389/fpls.2017.00626.")),
+                                                            
+                                                            tags$br(), 
+                                                          )),
+                                ),
+                                
+                                # Tools
+                                conditionalPanel(condition = "input.navigation_bar == 'tools'",
+                                                 tags$br(),tags$br(),
+                                                 tags$div(align = "justify", "One of the main goals of our group is
                                 the development of software tools acting as enabling technologies
                                 to promote systems biology studies in microalgae biotechnology in particular
                                 and in the green lineage in general. Below
                                 you can find a list of the software tools developed in our group:"),
-                       tags$br(), tags$br(), tags$br(),
-
-                       tags$div(align="left",
-                        splitLayout(
-                        cellWidths = c("20%", "80%"), 
-                        img(src='pharaohfun_logo.png', align = "center", width=100),
-                        tags$a(target="_blank", href="https://greennetwork.us.es/PharaohFUN/", 
-                               tags$b("PharaohFUN, Phylogenomic Analysis for Plant Protein History and Function Elucidation"))
-                   
-                        )),
-
-                       tags$br(), tags$br(),
-
-                       tags$div(align="left",
-                        splitLayout(
-                         cellWidths = c("20%", "80%"), 
-                         img(src='logo_1.png', align = "center", width=100),
-                         tags$a(target="_blank", href="https://greennetwork.us.es/AlgaeFUN/", 
-                                tags$b("ALGAEFUN, microALGAE FUNctional enrichment tool"))
-                         
-                         )),
-                       
-                       tags$br(), tags$br(),
-                       
-                       tags$div(align="left",
-                                splitLayout(
-                                 cellWidths = c("20%", "80%"), 
-                                 img(src='logo_1.gif', align = "center", width=100),
-                                 tags$a(target="_blank", href="https://github.com/fran-romero-campero/MARACAS", 
-                                        tags$b("MARACAS, MicroAlgae RnA-seq and Chip-seq AnalysiS"))
-                                 
-                                )),
-                       
-                       tags$br(), tags$br(),
-                       
-                       tags$div(align="left",
-                                splitLayout(
-                                 cellWidths = c("20%", "80%"), 
-                                 img(src='logo_minotaur.png', align = "center", width=100),
-                                 tags$a(target="_blank", href="https://greennetwork.us.es/MINOTAUR/", 
-                                        tags$b("MINOTAUR, Multi-omics INtegration in Ostreococcus TAURi"))
-                                 
-                                )),
-                       
-                       tags$br(), tags$br(),
-                       
-                       tags$div(align="left",
-                                splitLayout(
-                                 cellWidths = c("20%", "80%"), 
-                                 img(src='mole_knight.png', align = "center", width=100),
-                                 tags$a(target="_blank", href="https://greennetwork.us.es/MOLE-KNIGHTS/", 
-                                        tags$b("Mole Knights, MultiOmics anaLysis Exploration of Klebsormidium 
+                                                 tags$br(), tags$br(), tags$br(),
+                                                 
+                                                 tags$div(align="left",
+                                                          splitLayout(
+                                                            cellWidths = c("20%", "80%"), 
+                                                            img(src='pharaohfun_logo.png', align = "center", width=100),
+                                                            tags$a(target="_blank", href="https://greennetwork.us.es/PharaohFUN/", 
+                                                                   tags$b("PharaohFUN, Phylogenomic Analysis for Plant Protein History and Function Elucidation"))
+                                                            
+                                                          )),
+                                                 
+                                                 tags$br(), tags$br(),
+                                                 
+                                                 tags$div(align="left",
+                                                          splitLayout(
+                                                            cellWidths = c("20%", "80%"), 
+                                                            img(src='logo_1.png', align = "center", width=100),
+                                                            tags$a(target="_blank", href="https://greennetwork.us.es/AlgaeFUN/", 
+                                                                   tags$b("ALGAEFUN, microALGAE FUNctional enrichment tool"))
+                                                            
+                                                          )),
+                                                 
+                                                 tags$br(), tags$br(),
+                                                 
+                                                 tags$div(align="left",
+                                                          splitLayout(
+                                                            cellWidths = c("20%", "80%"), 
+                                                            img(src='logo_1.gif', align = "center", width=100),
+                                                            tags$a(target="_blank", href="https://github.com/fran-romero-campero/MARACAS", 
+                                                                   tags$b("MARACAS, MicroAlgae RnA-seq and Chip-seq AnalysiS"))
+                                                            
+                                                          )),
+                                                 
+                                                 tags$br(), tags$br(),
+                                                 
+                                                 tags$div(align="left",
+                                                          splitLayout(
+                                                            cellWidths = c("20%", "80%"), 
+                                                            img(src='logo_minotaur.png', align = "center", width=100),
+                                                            tags$a(target="_blank", href="https://greennetwork.us.es/MINOTAUR/", 
+                                                                   tags$b("MINOTAUR, Multi-omics INtegration in Ostreococcus TAURi"))
+                                                            
+                                                          )),
+                                                 
+                                                 tags$br(), tags$br(),
+                                                 
+                                                 tags$div(align="left",
+                                                          splitLayout(
+                                                            cellWidths = c("20%", "80%"), 
+                                                            img(src='mole_knight.png', align = "center", width=100),
+                                                            tags$a(target="_blank", href="https://greennetwork.us.es/MOLE-KNIGHTS/", 
+                                                                   tags$b("Mole Knights, MultiOmics anaLysis Exploration of Klebsormidium 
                                         NItens liGHT Stress"))
-                                 
-                                )),
-                       
-                       tags$br(), tags$br(),
-                       
-                       tags$div(align="left",
-                                splitLayout(
-                                 cellWidths = c("20%", "80%"), 
-                                 img(src='attractor_logo_2.jpg', align = "center", width=100),
-                                 tags$a(target="_blank", href="https://greennetwork.us.es/ATTRACTOR/", 
-                                        tags$b("ATTRACTOR, Arabidopsis Thaliana TRanscriptionAl Circadian neTwORk"))
-                                 
-                                )),
-                       
-                       tags$br(), tags$br(),
-                       
-                       tags$div(align="left",
-                                splitLayout(
-                                 cellWidths = c("20%", "80%"), 
-                                 img(src='bud.jpg', align = "center", width=100),
-                                 tags$a(target="_blank", href="https://greennetwork.us.es/BRC1NET/", 
-                                        tags$b("BRC1NET, BRC1 Downstream Transcriptional Network in Arabidopsis thaliana"))
-                                 
-                                )),
-                       
-                       tags$br(), tags$br(),
-                       
-                       # 
-      ),
-      
-      # Projects
-      conditionalPanel(condition = "input.navigation_bar == 'projects'",
-                       tags$br(),tags$br(),
-                       tags$div(align = "justify", "Below you can find a list of
+                                                            
+                                                          )),
+                                                 
+                                                 tags$br(), tags$br(),
+                                                 
+                                                 tags$div(align="left",
+                                                          splitLayout(
+                                                            cellWidths = c("20%", "80%"), 
+                                                            img(src='attractor_logo_2.jpg', align = "center", width=100),
+                                                            tags$a(target="_blank", href="https://greennetwork.us.es/ATTRACTOR/", 
+                                                                   tags$b("ATTRACTOR, Arabidopsis Thaliana TRanscriptionAl Circadian neTwORk"))
+                                                            
+                                                          )),
+                                                 
+                                                 tags$br(), tags$br(),
+                                                 
+                                                 tags$div(align="left",
+                                                          splitLayout(
+                                                            cellWidths = c("20%", "80%"), 
+                                                            img(src='bud.jpg', align = "center", width=100),
+                                                            tags$a(target="_blank", href="https://greennetwork.us.es/BRC1NET/", 
+                                                                   tags$b("BRC1NET, BRC1 Downstream Transcriptional Network in Arabidopsis thaliana"))
+                                                            
+                                                          )),
+                                                 
+                                                 tags$br(), tags$br(),
+                                                 
+                                                 # 
+                                ),
+                                
+                                # Projects
+                                conditionalPanel(condition = "input.navigation_bar == 'projects'",
+                                                 tags$br(),tags$br(),
+                                                 tags$div(align = "justify", "Below you can find a list of
                                 the recent research projects developed or in progress 
                                 in our group. Projects are sorted based on their final year:"),
-                       
-                       tags$h2(tags$b("2028")),
-
-                       tags$h4(
-                       align = "left",
-                       tags$b("Plants and algaE transcriptional Regulation of temperature reSponse and acclimation, an Evolutionary aPproach tHrough multiOmics and Networks Exploration (PERSEPHONE), PID2024-158798OB-I00")),
-
-                       tags$div(align="justify",
-                       tags$ul(
-                       tags$li(
-                       tags$b("Summary:"),
-                       "Photosynthetic eukaryotes of the green lineage (Viridiplantae), comprising green algae and terrestrial plants, have been pivotal in Earth evolutionary history and remain vital for maintaining atmospheric oxygen levels, mitigating climate change through carbon sequestration and providing energy for the vast majority of ecosystems including crops and fuels essential for human civilization. Their remarkable plasticity in temperature response and acclimation, underpinned by complex gene regulatory mechanisms including transcription factors and epigenetic modifications, has been crucial to enable them to colonize and thrive in very diverse environments. These include marine phytoplankton experiencing relatively stable ocean temperatures, benthic algae in intertidal zones facing rapid temperature shifts caused by tides, algae inhabiting seasonal ponds that desiccate during summers and terrestrial plants enduring seasonal and diurnal extreme temperatures. Understanding the regulatory mechanisms underlying this adaptability is crucial for advancing molecular plant science and addressing global challenges such as climate change and food security. The 29th United Nations Climate Change Conference (COP29) highlighted the urgent need to mitigate CO\u2082 emissions and emphasized the critical role of photosynthetic CO2 assimilation. This project seeks to uncover the conserved and divergent gene expression regulatory mechanisms underlying temperature response and acclimation in the green lineage. Specifically, it focuses on transcription factors involved in circadian clock regulation and epigenetic marks linked to Polycomb Repressive Complexes 1 and 2 (PRC1 and PRC2), H2Aub and H3K27me3. The novelty of this research project lies in its multidisciplinary, integrative and evolutionary approach. We will employ automated cultivation systems to generate high-resolution multiomics and physiological datasets, enabling comprehensive analyses of temperature resilience mechanisms. Multiomics data analysis will be applied to construct weighted temporal and longitudinal transcriptional gene networks for the planktonic unicellular chlorophyte Ostreococcus tauri, and gene co-expression networks for the benthic intertidal multicellular chlorophyte Codium tomentosum. Multiomics data analysis will also be employed from an evolutionary perspective to characterize the role over gene regulation in temperature response and acclimation of the epigenetic marks associated with PRC1 (H2Aub) and PRC2 (H3K27me3). This will be achieved by comparing the dynamics of these marks during temperature response and acclimation in the chlorophyte and streptophyte algae, Ostreococcus tauri and Klebsormidium nitens, which possess H3K27me3 but lack H2Aub, with the streptophyte algae Mesotaenium endlicherianum and the terrestrial bryophyte Marchantia, which have both marks. By studying transcriptional regulatory mechanisms across the green lineage, this project will advance our understanding of how algae and plants respond and acclimate to temperature changes. The research is especially relevant given the global climate emergency, characterized by rising temperatures and frequent heatwaves, especially in regions like the Iberian Peninsula, facing these challenges inland and along its coasts."
-                     ),
-                       tags$li(tags$b("Funding Agency:"), "Ministry of Science and Innovation"),
-                       tags$li(tags$b("Principal Investigators:"), "Francisco J. Romero-Campero, Mercedes García-González"),
-                       tags$li(tags$b("Funding:"), "237.500,00€"),
-                       tags$li(tags$b("Dates:"), "01/09/2025 - 31/08/2028")
-                       )),
-
-                       tags$h2(tags$b("2027")),
-
-                       tags$h2(tags$b("2026")),
-                       
-                       tags$h4(align= "left",tags$b("Investigating INosITol polyphosphates 
+                                                 
+                                                 tags$h2(tags$b("2028")),
+                                                 
+                                                 tags$h4(
+                                                   align = "left",
+                                                   tags$b("Plants and algaE transcriptional Regulation of temperature reSponse and acclimation, an Evolutionary aPproach tHrough multiOmics and Networks Exploration (PERSEPHONE), PID2024-158798OB-I00")),
+                                                 
+                                                 tags$div(align="justify",
+                                                          tags$ul(
+                                                            tags$li(
+                                                              tags$b("Summary:"),
+                                                              "Photosynthetic eukaryotes of the green lineage (Viridiplantae), comprising green algae and terrestrial plants, have been pivotal in Earth evolutionary history and remain vital for maintaining atmospheric oxygen levels, mitigating climate change through carbon sequestration and providing energy for the vast majority of ecosystems including crops and fuels essential for human civilization. Their remarkable plasticity in temperature response and acclimation, underpinned by complex gene regulatory mechanisms including transcription factors and epigenetic modifications, has been crucial to enable them to colonize and thrive in very diverse environments. These include marine phytoplankton experiencing relatively stable ocean temperatures, benthic algae in intertidal zones facing rapid temperature shifts caused by tides, algae inhabiting seasonal ponds that desiccate during summers and terrestrial plants enduring seasonal and diurnal extreme temperatures. Understanding the regulatory mechanisms underlying this adaptability is crucial for advancing molecular plant science and addressing global challenges such as climate change and food security. The 29th United Nations Climate Change Conference (COP29) highlighted the urgent need to mitigate CO\u2082 emissions and emphasized the critical role of photosynthetic CO2 assimilation. This project seeks to uncover the conserved and divergent gene expression regulatory mechanisms underlying temperature response and acclimation in the green lineage. Specifically, it focuses on transcription factors involved in circadian clock regulation and epigenetic marks linked to Polycomb Repressive Complexes 1 and 2 (PRC1 and PRC2), H2Aub and H3K27me3. The novelty of this research project lies in its multidisciplinary, integrative and evolutionary approach. We will employ automated cultivation systems to generate high-resolution multiomics and physiological datasets, enabling comprehensive analyses of temperature resilience mechanisms. Multiomics data analysis will be applied to construct weighted temporal and longitudinal transcriptional gene networks for the planktonic unicellular chlorophyte Ostreococcus tauri, and gene co-expression networks for the benthic intertidal multicellular chlorophyte Codium tomentosum. Multiomics data analysis will also be employed from an evolutionary perspective to characterize the role over gene regulation in temperature response and acclimation of the epigenetic marks associated with PRC1 (H2Aub) and PRC2 (H3K27me3). This will be achieved by comparing the dynamics of these marks during temperature response and acclimation in the chlorophyte and streptophyte algae, Ostreococcus tauri and Klebsormidium nitens, which possess H3K27me3 but lack H2Aub, with the streptophyte algae Mesotaenium endlicherianum and the terrestrial bryophyte Marchantia, which have both marks. By studying transcriptional regulatory mechanisms across the green lineage, this project will advance our understanding of how algae and plants respond and acclimate to temperature changes. The research is especially relevant given the global climate emergency, characterized by rising temperatures and frequent heatwaves, especially in regions like the Iberian Peninsula, facing these challenges inland and along its coasts."
+                                                            ),
+                                                            tags$li(tags$b("Funding Agency:"), "Ministry of Science and Innovation"),
+                                                            tags$li(tags$b("Principal Investigators:"), "Francisco J. Romero-Campero, Mercedes García-González"),
+                                                            tags$li(tags$b("Funding:"), "237.500,00€"),
+                                                            tags$li(tags$b("Dates:"), "01/09/2025 - 31/08/2028")
+                                                          )),
+                                                 
+                                                 tags$h2(tags$b("2027")),
+                                                 
+                                                 tags$h2(tags$b("2026")),
+                                                 
+                                                 tags$h4(align= "left",tags$b("Investigating INosITol polyphosphates 
                                                     InterAcTome in the context of CO2 capturing and carbon paRtitioning (INITIATOR), PID2022-136633OA-I00")),
-                       
-                       tags$div(align="justify",
-                                tags$ul(
-                                 tags$li(tags$b("Summary:"),
-                                         "Mitigation of CO2 is one of the most important problems that governments are facing in the last decade. In fact, European Union is proposing a 40% reduction of its emissions by the end of 2030 in the latest Climate and Energy framework and it pretends to be climate-neutral by 2050 (https://ec.europa.eu/clima/policies/strategies). In this sense, biological CO2 capturing, photosynthesis and its molecular regulation is an ancient process that needs to be revisited in order to help in the reduction of this greenhouse gas.
+                                                 
+                                                 tags$div(align="justify",
+                                                          tags$ul(
+                                                            tags$li(tags$b("Summary:"),
+                                                                    "Mitigation of CO2 is one of the most important problems that governments are facing in the last decade. In fact, European Union is proposing a 40% reduction of its emissions by the end of 2030 in the latest Climate and Energy framework and it pretends to be climate-neutral by 2050 (https://ec.europa.eu/clima/policies/strategies). In this sense, biological CO2 capturing, photosynthesis and its molecular regulation is an ancient process that needs to be revisited in order to help in the reduction of this greenhouse gas.
 In green microalgae, fixed CO2 is normally redirected to two different fates, cell growth (proteins) and carbon storage, mainly in the form of lipids and carbohydrates (starch) (Melis, 2013). In this sense, the use of these microorganisms for the production of biofuels is a good alternative to land crops because it lacks the main ethical implications on food/feed market and land use (Zhu et al., 2022). Thus, the understanding of the intracellular regulation of CO2 capturing and partitioning in green cells is fundamental in order to optimize their use. The green alga Chlamydomonas reinhardtii has been a perfect model for these kinds of studies. Actually, it has been used to describe the interaction between TOR kinase and the pyro-phosphorylated derivates of inositol polyphosphates (PP-InsPs) that controls carbon uptake and its final destination within these photosynthetic cells (Couso et al., 2016).  Until that time, the applicability of inositol polyphosphates (InsPs) in green organisms was limited to biofortification strategies in crop genetic engineering for enhanced mineral density in traits, as these molecules are potent chelating agents that impact de bioavailability of iron and zinc (Raboy, 2020; Wang et al., 2022). Based on our previous results, this project is designed under the prospective view of understanding and manipulating InsPs biosynthesis in microalgae in order to increase the applicability of these green cells in the biofuels and other high added value compounds production towards the global strategy of carbon reduction."),
-                                 tags$li(tags$b("Funding Agency:"), "Ministry of Science and Innovation"),
-                                 tags$li(tags$b("Principal Investigators:"), "Inmaculada Couso-Liañez"),
-                                 tags$li(tags$b("Funding:"), "141.000,00€"),
-                                 tags$li(tags$b("Dates:"), "12/2026")
-                                )),
-                       
-                       
-                       
-                       tags$h2(tags$b("2025")),
-                       
-                       tags$h4(align= "left",tags$b("Evolution of Diurnal and Seasonal Rhythmic
+                                                            tags$li(tags$b("Funding Agency:"), "Ministry of Science and Innovation"),
+                                                            tags$li(tags$b("Principal Investigators:"), "Inmaculada Couso-Liañez"),
+                                                            tags$li(tags$b("Funding:"), "141.000,00€"),
+                                                            tags$li(tags$b("Dates:"), "12/2026")
+                                                          )),
+                                                 
+                                                 
+                                                 
+                                                 tags$h2(tags$b("2025")),
+                                                 
+                                                 tags$h4(align= "left",tags$b("Evolution of Diurnal and Seasonal Rhythmic
 Networks in Chlorophyta, Charophyta and Bryophyta (ELECTRA), PID2021-1239840B-I00")),
-                       
-                       tags$div(align="justify",
-                                tags$ul(
-                                 tags$li(tags$b("Summary:"),
-                                         "The cultivation of photophrophic organisms represents an opportunity in the current climate emergency situation contributing to the
+                                                 
+                                                 tags$div(align="justify",
+                                                          tags$ul(
+                                                            tags$li(tags$b("Summary:"),
+                                                                    "The cultivation of photophrophic organisms represents an opportunity in the current climate emergency situation contributing to the
 removal of part of the accumulating CO2 in the atmosphere and its transformation into plant biomass. Since the last century the use of
 microalgae has been proposed for this purpose, due to the biotechnological characteristics of its cultivation. However, few initiatives have
 reached industrial scale. Currently only few microalgae species are massively cultivated (Chlorella, Spirulina, Dunaliella and
@@ -788,23 +934,23 @@ approach combining cultivation of these photosynthetic organisms under controlle
 multivariate analysis of massive data and network theory. Ultimately, our project seeks to construct the transcriptional network controlling
 diurnal and seasonal rhythms and characterize its evolution in the green lineage history. The midterm application of our results will
 represent an important progress in microalgae biotechnology, plant evolutionary biology and environmental sustainability."),
-                                 tags$li(tags$b("Funding Agency:"), "Ministry of Science and Innovation"),
-                                 tags$li(tags$b("Principal Investigators:"), "Francisco J. Romero-Campero, Mercedes García-González"),
-                                 tags$li(tags$b("Funding:"), "96.800,00€"),
-                                 tags$li(tags$b("Dates:"), "01/2023 - 12/2025")
-                                )),
-                       
-                       tags$h2(tags$b("2024")),
-                       
-                       tags$h4(align= "left",tags$b("Identification of REgulatorS involved in the
+                                                            tags$li(tags$b("Funding Agency:"), "Ministry of Science and Innovation"),
+                                                            tags$li(tags$b("Principal Investigators:"), "Francisco J. Romero-Campero, Mercedes García-González"),
+                                                            tags$li(tags$b("Funding:"), "96.800,00€"),
+                                                            tags$li(tags$b("Dates:"), "01/2023 - 12/2025")
+                                                          )),
+                                                 
+                                                 tags$h2(tags$b("2024")),
+                                                 
+                                                 tags$h4(align= "left",tags$b("Identification of REgulatorS involved in the
 accumulation of bIodiesel precursor fatty acids induced by Light and nItrogEN availability in
 miCroalgaE (RESILIENCE), TED2021-129651B-I00")),
-                       
-                       
-                       tags$div(align="justify",
-                                tags$ul(
-                                 tags$li(tags$b("Summary:"),
-                                         "The cultivation of photophrophic organisms represents an opportunity in the current climate emergency, contributing to the removal of a
+                                                 
+                                                 
+                                                 tags$div(align="justify",
+                                                          tags$ul(
+                                                            tags$li(tags$b("Summary:"),
+                                                                    "The cultivation of photophrophic organisms represents an opportunity in the current climate emergency, contributing to the removal of a
 fraction of the CO2 that is accumulating in the atmosphere by transforming it into plant biomass. Since the last century, microalgae
 cultivation, due to their biotechnological advantages, have been proposed as a sustainable solution to this problem. Nonetheless, few
 initiatives have reached industrial scale. The potential of some microalgae for biofuel photoproduction is widely recognized, due to their
@@ -830,81 +976,86 @@ optimazition of R. subcapitata as a biodiesel precursor fatty acids cell factory
 fatty acids for the generation of carbon-neutral biofuels progressing towards the stabilization of greenhouse gas concentrations in the
 atmosphere, mainly CO2. This is a multidisciplinary project, where experiences in, molecular biology and microalgae biotechnology are
 combined with those of bioinformatics, which guarantee an effective symbiosis to achieve the proposed objetives."),
-                                 tags$li(tags$b("Funding Agency:"), "Ministry of Science and Innovation"),
-                                 tags$li(tags$b("Principal Investigators:"), "Mercedes García-González, Francisco J. Romero-Campero"),
-                                 tags$li(tags$b("Funding:"), "126.500,00€"),
-                                 tags$li(tags$b("Dates:"), "01/2023 - 12/2024")
-                                )),
-                       
-                       tags$br(),
-                       tags$h4(align= "left",tags$b("Estudio del impacto de los Inositoles polifosfato en la regulación Redox y Estrategias para la Mitigación del Carbono en Algas Verdes - PARAGON.")),
-                       
-                       tags$div(align="justify",
-                                tags$ul(
-                                 tags$li(tags$b("Summary:"),""),
-                                 tags$li(tags$b("Funding Agency:"), "Ministry of Science and Innovation"),
-                                 tags$li(tags$b("Principal Investigators:"), "Inmaculada Couso"),
-                                 tags$li(tags$b("Funding:"), ""),
-                                 tags$li(tags$b("Dates:"), "01/2023 - 12/2024")
-                                )),
-                       
-                       
-                       tags$h2(tags$b("2023")),
-                       
-                       
-                       tags$br(),
-                       tags$h4(align= "left",tags$b("Estudio de la eficiencia de bioestimulantes innovadores derivados de microalgas para combatir los efectos adversos del cambio climático en tomate y trigo - Microclimatt. O00000226E2000044796")),
-                       
-                       tags$div(align="justify",
-                                tags$ul(
-                                 tags$li(tags$b("Summary:"),"The aim of this project is to highlight the essential role of agricultural biostimulants, in particular those made from microalgae biomass. It seeks to demonstrate the effectiveness of these innovative solutions derived from microalgae to efficiently fight the effects of climate change on crops such as tomatoe and wheat. MicroClimatt will evaluate the physiological and transcriptomic effects induced by treatment with novel microalgae biostimulants on these crops, including conditions that are directly or indirectly caused by climate change, such as water stress or poor fertilisation rates.
+                                                            tags$li(tags$b("Funding Agency:"), "Ministry of Science and Innovation"),
+                                                            tags$li(tags$b("Principal Investigators:"), "Mercedes García-González, Francisco J. Romero-Campero"),
+                                                            tags$li(tags$b("Funding:"), "126.500,00€"),
+                                                            tags$li(tags$b("Dates:"), "01/2023 - 12/2024")
+                                                          )),
+                                                 
+                                                 tags$br(),
+                                                 tags$h4(align= "left",tags$b("Estudio del impacto de los Inositoles polifosfato en la regulación Redox y Estrategias para la Mitigación del Carbono en Algas Verdes - PARAGON.")),
+                                                 
+                                                 tags$div(align="justify",
+                                                          tags$ul(
+                                                            tags$li(tags$b("Summary:"),""),
+                                                            tags$li(tags$b("Funding Agency:"), "Ministry of Science and Innovation"),
+                                                            tags$li(tags$b("Principal Investigators:"), "Inmaculada Couso"),
+                                                            tags$li(tags$b("Funding:"), ""),
+                                                            tags$li(tags$b("Dates:"), "01/2023 - 12/2024")
+                                                          )),
+                                                 
+                                                 
+                                                 tags$h2(tags$b("2023")),
+                                                 
+                                                 
+                                                 tags$br(),
+                                                 tags$h4(align= "left",tags$b("Estudio de la eficiencia de bioestimulantes innovadores derivados de microalgas para combatir los efectos adversos del cambio climático en tomate y trigo - Microclimatt. O00000226E2000044796")),
+                                                 
+                                                 tags$div(align="justify",
+                                                          tags$ul(
+                                                            tags$li(tags$b("Summary:"),"The aim of this project is to highlight the essential role of agricultural biostimulants, in particular those made from microalgae biomass. It seeks to demonstrate the effectiveness of these innovative solutions derived from microalgae to efficiently fight the effects of climate change on crops such as tomatoe and wheat. MicroClimatt will evaluate the physiological and transcriptomic effects induced by treatment with novel microalgae biostimulants on these crops, including conditions that are directly or indirectly caused by climate change, such as water stress or poor fertilisation rates.
 
 This project also aims to quantify the incorporation of carbon in the plant biomass of crops linked to increased productivity, to evaluate the increase of organic carbon incorporation in the soil sink and to study the improvement of soil fertility by treatment of crops with microalgae derivatives, as well as the improvement of soil quality, functionality and sustainability.
 "),
-                                 tags$li(tags$b("Funding Agency:"), "Ministry of Agriculture, Fisheries and Food."),
-                                 tags$li(tags$b("Principal Investigators:"), "Francisco J. Romero-Campero, Mercedes García-González"),
-                                 tags$li(tags$b("Funding:"), "96.497,71€"),
-                                 tags$li(tags$b("Dates:"), "03/2021 - 03/2023")
-                                )),
-                       
-                       img(src='microclimatt.png', align = "center", width=300),
-                       
-                       tags$br(),
-
-                     
-                       
-                       
-                       
-                       
-
-      ),
-      
-      
-      
-      # Data
-      # conditionalPanel(condition = "input.navigation_bar == 'data'",
-      #                  tags$div(align = "justify", "Data."),
-      #                  tags$br()
-      #                  # 
-      # ),
-      
-      
-      )),
-    column(
-     width = 2,
-     img(src='logo_ibvf.jpg', align = "center", width=150),
-     tags$br(),tags$br(),tags$br(),
-     img(src='logo_csic.jpg', align = "center", width=150),
-     tags$br(),tags$br(),
-     tags$div(align = "center", width=60,
-              HTML("<script type=\"text/javascript\" src=\"//rf.revolvermaps.com/0/0/8.js?i=5abx0bfgoj6&amp;m=7&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33\" async=\"async\"></script>"))
-    )
-  )
+                                                            tags$li(tags$b("Funding Agency:"), "Ministry of Agriculture, Fisheries and Food."),
+                                                            tags$li(tags$b("Principal Investigators:"), "Francisco J. Romero-Campero, Mercedes García-González"),
+                                                            tags$li(tags$b("Funding:"), "96.497,71€"),
+                                                            tags$li(tags$b("Dates:"), "03/2021 - 03/2023")
+                                                          )),
+                                                 
+                                                 img(src='microclimatt.png', align = "center", width=300),
+                                                 
+                                                 tags$br(),
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+                                ),
+                                
+                                
+                                
+                                # Data
+                                # conditionalPanel(condition = "input.navigation_bar == 'data'",
+                                #                  tags$div(align = "justify", "Data."),
+                                #                  tags$br()
+                                #                  # 
+                                # ),
+                                
+                                
+                            )),
+                          column(
+                            width = 2,
+                            div(class = "side-logos-card",
+                                img(src='logo_ibvf.jpg', align = "center", width=150),
+                                tags$br(),tags$br(),tags$br(),
+                                img(src='logo_csic.jpg', align = "center", width=150)
+                            ),
+                            div(class = "visitor-card",
+                                tags$div(class = "visitor-title", "Visitors"),
+                                tags$div(class = "visitor-subtitle", "Real-time world map of site visits"),
+                                tags$script(type = "text/javascript", id = "mapmyvisitors", src = "//mapmyvisitors.com/map.js?d=B9A9ACgdJ-LFslI9iCAjkTJUDKXVLXuYHgFjTIUbDrs&cl=ffffff&w=a")
+                            )
+                          )
+                        )
 ))  
 
 
+
 server <- shinyServer(function(input, output, session) {
-          
+  
 })
 
 # Run the application 

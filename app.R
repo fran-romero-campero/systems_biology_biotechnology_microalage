@@ -300,13 +300,14 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                                             tags$div(
                                                               img(src='elena.png', align = "center", width=140), tags$br(),
                                                               tags$b("M. Elena García-Gómez"), tags$br(),
-                                                              tags$b("Biologist"), tags$br(),tags$b("Lab Technician/Manager")
+                                                              tags$b("Biologist"), tags$br(),tags$b("Lab Technician / Manager")
                                                             ),
                                                             tags$div(
                                                               img(src='alberto_barrero.jpg', align = "center", width=180), tags$br(),
-                                                              tags$b("Alberto Barrero"), tags$br(),
+                                                              tags$b("Alberto Barrero-González"), tags$br(),
                                                               tags$b("Biochemist"), tags$br(), 
-                                                              tags$b("Master in Omics Data Analysis and Systems Biology"), tags$br(),
+                                                              tags$b("MSc in Omics Data Analysis"), tags$br(),
+                                                              tags$b("& Systems Biology"), tags$br(),
                                                               tags$b("Lab Technician")
                                                             ),
                                                             ##                                 tags$div(
@@ -329,21 +330,24 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                                             tags$div(
                                                               img(src='cristina.png', align = "center", width=150), tags$br(),
                                                               tags$b("Christina Arvanitidou"), tags$br(),
-                                                              tags$b("Biologist / Computer and Data Scientist"), tags$br(),
+                                                              tags$b("Biologist / Computer and Data Scientist"), tags$br(), 
+                                                              tags$b("MSc in Genetics & Molecular Biology"), tags$br(),
                                                               tags$b("PhD Student Funded by"), tags$br(), tags$b("the Andalusian Goverment")
                                                             ),
                                                             tags$div(
                                                               img(src='emma.png', align = "center", width=150), tags$br(),
                                                               tags$b("Emma Serrano-Pérez"), tags$br(),
-                                                              tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
-                                                              tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
-                                                              tags$b("PhD Student Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
+                                                              tags$b("Biochemist / Computer and Data Scientist"), tags$br(), 
+                                                              tags$b("MSc in Omics Data Analysis"), tags$br(),
+                                                              tags$b("& Systems Biology"), tags$br(),
+                                                              tags$b("PhD Student MOMENTUM Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
                                                             ),
                                                             tags$div(
                                                               img(src='marcos2.jpeg', align = "center", width=150), tags$br(),
                                                               tags$b("Marcos Ramos-González"), tags$br(),
-                                                              tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
-                                                              tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
+                                                              tags$b("Biochemist / Computer and Data Scientist"), tags$br(), 
+                                                              tags$b("MSc in Omics Data Analysis"), tags$br(),
+                                                              tags$b("& Systems Biology"), tags$br(),
                                                               tags$b("PhD Student FPU Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
                                                             )
                                                           )),
@@ -356,16 +360,18 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                                             tags$div(
                                                               img(src='roda.png', align = "center", width=180), tags$br(),
                                                               tags$b("Rodrigo Bedera"), tags$br(),
-                                                              tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
-                                                              tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
-                                                              tags$b("PhD Student FPU Funded by the Ministry of Science and Innovation")
+                                                              tags$b("Biochemist / Computer and Data Scientist"), tags$br(), 
+                                                              tags$b("MSc in Omics Data Analysis"), tags$br(),
+                                                              tags$b("& Systems Biology"), tags$br(),
+                                                              tags$b("PhD Student FPU Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
                                                             ),
                                                             tags$div(
                                                               img(src='diana.jpeg', align = "center", width=150), tags$br(),
                                                               tags$b("Diana-Andreea Baicea"), tags$br(),
-                                                              tags$b("Biochemist / Computer and Data Scientist"), tags$br(),
-                                                              tags$b("Master in Omics Data Analysis and Systems Biology"),tags$br(),
-                                                              tags$b("PhD Student FPI Funded by the Ministry of Science and Innovation")
+                                                              tags$b("Biochemist / Computer and Data Scientist"), tags$br(), 
+                                                              tags$b("MSc in Omics Data Analysis"), tags$br(),
+                                                              tags$b("& Systems Biology"), tags$br(),
+                                                              tags$b("PhD Student FPI Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
                                                             )
                                                           )),
                                                  
@@ -382,7 +388,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                                             tags$div(
                                                               img(src='maria_cruz.jpeg', align = "center", width=150), tags$br(),
                                                               tags$b("María Cruz-Adame"), tags$br(),
-                                                              tags$b("Biochemist"), tags$br(),tags$b("Master in Genetics and Molecular Biology")
+                                                              tags$b("Biochemist"), tags$br(),tags$b("MSc in Genetics & Molecular Biology")
                                                             ),
                                                           )),
                                                  
@@ -455,7 +461,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                                             tags$div(
                                                               img(src='andrea_garcia.jpg', align = "center", width=150), tags$br(),
                                                               tags$b("Andrea García-Alcaide"), tags$br(),
-                                                              tags$b("Biotechnologist"), tags$br(),tags$b("Master in Omics Data Analysis and Systems Biology")
+                                                              tags$b("Biotechnologist"), tags$br(),tags$b("MSc in Genetics & Molecular Biology")
                                                             ),
                                                           )),
                                                  
@@ -476,6 +482,13 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                                  
                                                  tags$div(align="justify",
                                                           tags$ul(
+
+                                                            tags$br(),
+
+                                                            tags$li(tags$a(target="_blank", href="https://doi.org/10.1073/pnas.2601574123",
+                                                            "Catarino B, Rodríguez-Marín F, Úrbez C, Arvanitidou C, Álvarez E, Valverde F, Franco-Zorrilla JM, Romero-Campero FJ, Blázquez MA. (2026)",
+                                                            tags$b("Conserved regulatory core and lineage-specific diversification of light-temperature integration in plants."),
+                                                            "Proceedings of the National Academy of Sciences 123(19):e2601574123. doi: 10.1073/pnas.2601574123")),
                                                             
                                                             tags$br(),
                                                             

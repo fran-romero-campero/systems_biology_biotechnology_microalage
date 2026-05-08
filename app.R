@@ -348,7 +348,9 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                                               tags$b("Biochemist / Computer and Data Scientist"), tags$br(), 
                                                               tags$b("MSc in Omics Data Analysis"), tags$br(),
                                                               tags$b("& Systems Biology"), tags$br(),
-                                                              tags$b("PhD Student MOMENTUM Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
+                                                              tags$b("MOMENTUM PhD Student Funded by"), tags$br(), 
+                                                              tags$b("the EU Recovery and Resilience"), tags$br(),
+                                                              tags$b("Mechanism – Next Generation EU")
                                                             ),
                                                             tags$div(
                                                               img(src='marcos2.jpeg', align = "center", width=150), tags$br(),
@@ -356,7 +358,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                                               tags$b("Biochemist / Computer and Data Scientist"), tags$br(), 
                                                               tags$b("MSc in Omics Data Analysis"), tags$br(),
                                                               tags$b("& Systems Biology"), tags$br(),
-                                                              tags$b("PhD Student FPU Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
+                                                              tags$b("FPU PhD Student Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
                                                             )
                                                           )),
                                                  
@@ -371,7 +373,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                                               tags$b("Biochemist / Computer and Data Scientist"), tags$br(), 
                                                               tags$b("MSc in Omics Data Analysis"), tags$br(),
                                                               tags$b("& Systems Biology"), tags$br(),
-                                                              tags$b("PhD Student FPU Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
+                                                              tags$b("FPU PhD Student Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
                                                             ),
                                                             tags$div(
                                                               img(src='diana.jpeg', align = "center", width=150), tags$br(),
@@ -379,7 +381,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                                               tags$b("Biochemist / Computer and Data Scientist"), tags$br(), 
                                                               tags$b("MSc in Omics Data Analysis"), tags$br(),
                                                               tags$b("& Systems Biology"), tags$br(),
-                                                              tags$b("PhD Student FPI Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
+                                                              tags$b("FPI PhD Student Funded by"), tags$br(), tags$b("the Ministry of Science and Innovation")
                                                             )
                                                           )),
                                                  

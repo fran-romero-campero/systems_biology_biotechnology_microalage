@@ -303,11 +303,19 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                                               tags$b("Biologist"), tags$br(),tags$b("Lab Technician / Manager")
                                                             ),
                                                             tags$div(
-                                                              img(src='alberto_barrero.jpg', align = "center", width=180), tags$br(),
+                                                              img(src='alberto_barrero2.jpeg', align = "center", width=180), tags$br(),
                                                               tags$b("Alberto Barrero-González"), tags$br(),
                                                               tags$b("Biochemist"), tags$br(), 
                                                               tags$b("MSc in Omics Data Analysis"), tags$br(),
                                                               tags$b("& Systems Biology"), tags$br(),
+                                                              tags$b("Lab Technician")
+                                                            ),
+                                                            tags$div(
+                                                              img(src='borja.png', align = "center", width=180), tags$br(),
+                                                              tags$b("Borja Prieto-Muñiz"), tags$br(),
+                                                              tags$b("Biologist"), tags$br(), 
+                                                              tags$b("Specialised in Clinical Laboratory"), tags$br(),
+                                                              tags$b("and Pathological Anatomy"), tags$br(),
                                                               tags$b("Lab Technician")
                                                             ),
                                                             ##                                 tags$div(

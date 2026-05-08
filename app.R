@@ -205,7 +205,7 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                        an", tags$b("evolutionary methodology"), "in the characterization of these mechanisms extending
                        our studies to the", tags$b("green lineage or viridiplantae"), "focusing specifically in the terrestralization 
                        event during plant evolution. Our favourite model organisms are", tags$b(tags$i("Ostreococcus 
-                       tauri, Chlamydomonas reinhardtii, Klebsormidium nitens, Marchantia polymorpha")), "and", 
+                       tauri, Chlamydomonas reinhardtii, Klebsormidium nitens, Marchantia polymorpha, Raphidocelis subcapitata")), "and", 
                                                           tags$b(tags$i("Arabidopsis thaliana.")), "We also study the microalgae of industrial interest",
                                                           tags$b(tags$i("Haematococcus lacustris")), "and", tags$b(tags$i("Chromocloris zofingiensis")), 
                                                           "and crops such as", tags$b(tags$i("wheat or Triticum aestivium")), 
@@ -232,8 +232,8 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                                               tags$b("Klebsormidium nitens"), tags$br(),
                                                             ),
                                                             tags$div(
-                                                              img(src='chromocloris_zofingiensis.png', align = "center", width=200), tags$br(),
-                                                              tags$b("Chromochloris zofingiensis"), tags$br(),
+                                                              img(src='chlamy.png', align = "center", width=200), tags$br(),
+                                                              tags$b("Chlamydomonas reinhardtii"), tags$br(),
                                                             )
                                                           )), tags$br(), tags$br(),
                                                  tags$div(align="center",
@@ -248,8 +248,8 @@ ui <- shinyUI(fluidPage(theme = shinytheme("flatly"),
                                                               tags$b("Arabidopsis thaliana"), tags$br(),
                                                             ),
                                                             tags$div(
-                                                              img(src='slycopersicum.png', align = "center", width=200), tags$br(),
-                                                              tags$b("Solanum lycopersicum"), tags$br(),
+                                                              img(src='raphi2.png', align = "center", width=200), tags$br(),
+                                                              tags$b("Raphidocelis subcapitata"), tags$br(),
                                                             )
                                                           )), tags$br(), tags$br(),
                                                  # 
